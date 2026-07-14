@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website! 🚀
 
-This website showcases my background, skills, projects, certifications, and experiences as a Computing student. It serves as a digital platform to highlight my journey in software development, cybersecurity, and technology.
+This website showcases my background, skills, projects, certifications, and experiences. It serves as a digital platform to highlight my journey in software development, cybersecurity, and technology.
 
 ## 🛠️ Built With
 - HTML
