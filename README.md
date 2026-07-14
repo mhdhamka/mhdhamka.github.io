@@ -13,7 +13,4 @@ This website showcases my background, skills, projects, certifications, and expe
 ## 🌍 Live Website
 https://mhdhamka.github.io/
 
-## 📌 Repository
-This repository contains the source code and assets for my personal portfolio website.
-
 ⭐ Feel free to explore and connect!
