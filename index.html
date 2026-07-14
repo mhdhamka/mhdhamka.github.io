@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UNICON -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- SwiperCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/code.PNG">
+
+    <title>mdhamka portfolio</title>
+</head>
+
+<body>
+    <!-- Header --> 
+    <header class="header" id="header"> 
+        <nav class="nav container"> 
+            <!-- Left: Logo -->  
+            <a href="index.html" class="nav__logo">mdhamka Portfolio</a> 
+            <div class="nav__menu" id="nav-menu"> 
+                <ul class="nav__list grid"> 
+                    <li class="nav__item"> 
+                        <a href="#home" class="nav__link"> 
+                            <i class="uil uil-estate nav__icon"></i> Home 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#about" class="nav__link"> 
+                            <i class="uil uil-user nav__icon"></i> About 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#qualification" class="nav__link"> 
+                            <i class="uil uil-book-alt nav__icon"></i> Qualification 
+                        </a> 
+                    </li> 
+ 
+                    <li class="nav__item"> 
+                        <a href="#skills" class="nav__link"> 
+                            <i class="uil uil-wrench nav__icon"></i> Skills 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#activity" class="nav__link"> 
+                            <i class="uil uil-schedule nav__icon"></i> Activity 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#project" class="nav__link"> 
+                            <i class="uil uil-file-alt nav__icon"></i> Projects 
+                        </a> 
+                    </li>  
+                </ul> 
+                <i class="uil uil-times nav__close" id="nav-close"></i> 
+            </div> 
+ 
+            <div class="nav__btns"> 
+                <!-- Theme btn --> 
+                <i class="uil uil-moon change-theme" id="theme-button"></i> 
+ 
+                <div class="nav__toggle" id="nav-toggle"> 
+                    <i class="uil uil-apps"></i> 
+                </div> 
+            </div>
+        </nav> 
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <!-- Home -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content grid">
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/mdhamka/" target="_blank" class="home__social-icon"
+                            title="Linkedin">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://github.com/mhdhamka" target="_blank" class="home__social-icon" title="Github">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <i class="uil uil-envelope home__social-icon email-icon" title="Copy email"></i>
+
+                    </div>
+                   <div class="home__img">
+                        <svg class="home__blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="circleMask">
+                                <circle cx="100" cy="100" r="100" />
+                            </clipPath>
+                        </defs>
+                        <image
+                            class="home__blob-img"
+                            x="0"
+                            y="0"
+                            width="200"
+                            height="200"
+                            xlink:href="../assets/img/photo.jpg"
+                            clip-path="url(#circleMask)"
+                            preserveAspectRatio="xMidYMid slice"
+                        />
+                        </svg>
+                    </div>
+                    <div class="home__data">
+                        <h1 class="home__title">Holla, I'm <span id="name">mdhamka</span></h1>
+                        <h3 class="home__subtitle">Software Engineer</h3>
+                        <p class="home__description">Aspiring software engineer with skills in programming, system design, and teamwork, plus experience in customer service and marketing.</p>
+                        <a target="_blank" href="../assets/resume/mdhamka_resume.pdf" class="button button--flex">
+                            Download My Resume <i class="uil uil-download-alt button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <span class="home__scroll-name">Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about section" id="about">
+            <h2 class="section__title">About Me</h2>
+            <span class="section__subtitle">Personal Summary</span>
+
+            <div class="about__container container grid">
+                <!-- Animation / GIF -->
+                <div class="about__img">
+                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmlodW10eXFvamlqNXJ6M3B0emc2YmdieWw1OHY5cmo0Y2p6bHE2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif" alt="About Me Animation">
+                </div>
+
+                <!-- About Content -->
+                <div class="about__data">
+                    <p class="about__description">Hi Everyone, I am Mohd Hamka from Kuching, Sarawak.
+                                          I am a Software Engineer that graduated from UNIMAS. Apart from coding, some other activities that I love to do like playing Games, and exploring trends of emerging tech. 
+                    </p>
+                <!-- Info Cards -->
+                <div class="about__info-cards">
+                    <div class="about__info-card">
+                        <span class="about__info-title">Active</span>
+                        <span class="about__info-name">Learner</span>
+                    </div>
+                    <div class="about__info-card">
+                        <span class="about__info-title">Evolving</span>
+                        <span class="about__info-name">Developer</span>
+                    </div>
+                    <div class="about__info-card">
+                        <span class="about__info-title">Collaborative</span>
+                        <span class="about__info-name">Team-Oriented</span>
+                    </div>
+                </div>
+
+                <!-- Quote -->
+                <blockquote class="about__quote">
+                    “Strive to build things that make a difference!”
+                </blockquote>
+
+                <!-- Contact Button -->
+                <div class="about__buttons">
+                    <a href="#contact" class="button button--flex">
+                        Contact Me <i class="uil uil-message button__icon"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </section>
+        
+         <!-- Qualification -->
+        <section class="qualification section" id="qualification">
+            <h2 class="section__title">Qualification</h2>
+            <span class="section__subtitle">Education & Professional Experience</span>
+
+            <div class="qualification__container container">
+
+                <!-- Tabs -->
+                <div class="qualification__tabs">
+
+                    <div class="qualification__button button--flex qualification__active" data-target="#education">
+                        <i class="uil uil-graduation-cap qualification__icon"></i>
+                        Education
+                    </div>
+
+                    <div class="qualification__button button--flex" data-target="#work">
+                        <i class="uil uil-briefcase-alt qualification__icon"></i>
+                        Experience
+                    </div>
+
+                </div>
+
+                <div class="qualification__sections">
+
+                    <!-- ================= EDUCATION ================= -->
+                    <div class="qualification__content qualification__active" data-content id="education">
+
+                        <!-- Degree -->
+                        <div class="qualification__data">
+
+                            <div>
+                                <h3 class="qualification__title">
+                                    Bachelor of Computer Science (Software Engineering) with Honours
+                                </h3>
+
+                                <span class="qualification__subtitle">
+                                    Universiti Malaysia Sarawak (UNIMAS)
+                                </span>
+
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar-alt"></i>
+                                    2021 – 2025
+                                </div>
+
+                                <div class="qualification__pointer">
+                                    CGPA: <strong>3.65 / 4.00</strong>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+
+                        </div>
+
+                        <!-- Foundation -->
+                        <div class="qualification__data">
+                            <div></div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                            </div>
+
+                            <div>
+                                <h3 class="qualification__title">
+                                    Foundation in Life Sciences
+                                </h3>
+
+                                <span class="qualification__subtitle">
+                                    Centre for Pre-University Studies, UNIMAS
+                                </span>
+
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar-alt"></i>
+                                    2020 – 2021
+                                </div>
+
+                                <div class="qualification__pointer">
+                                    CGPA: <strong>3.27 / 4.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= EXPERIENCE ================= -->
+                    <div class="qualification__content" data-content id="work">
+
+                        <!-- Internship -->
+                        <div class="qualification__data">
+
+                            <div>
+
+                                <h3 class="qualification__title">
+                                    Cybersecurity Intern (SOC Analyst)
+                                </h3>
+
+                                <span class="qualification__subtitle">
+                                    Sarawak Energy Berhad
+                                </span>
+
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar-alt"></i>
+                                    Feb 2025 – Aug 2025
+                                </div>
+
+                                <div class="qualification__pointer">
+                                    Security monitoring • Incident analysis • SIEM • Threat detection
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+
+                        </div>
+
+                        <!-- Freelancer / Projects -->
+                        <div class="qualification__data">
+
+                            <div></div>
+
+                            <div>
+                                <span class="qualification__rounder"></span>
+                            </div>
+
+                            <div>
+
+                                <h3 class="qualification__title">
+                                    Software Development Projects
+                                </h3>
+
+                                <span class="qualification__subtitle">
+                                    Academic & Personal Projects
+                                </span>
+
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar-alt"></i>
+                                    2022 – Present
+                                </div>
+
+                                <div class="qualification__pointer">
+                                    Built web applications using PHP, MySQL, JavaScript, Bootstrap, C++, Git and GitHub.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Skills -->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">what i bring to the table</h2>
+            <span class="section__subtitle">how i can contribute & my key skills</span>
+
+            <div class="skills__container container grid">
+            <!-- Web Development -->
+            <div class="skill-card">
+                <div class="skill-card__front">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" />
+                    <h1 class="skills__title">Web Development</h1>
+                </div>
+                <div class="skill-card__back">
+                    <ul>
+                        <li>HTML/ CSS <div class="progress"><div class="progress-bar" style="width: 90%">advanced</div></div></li>
+                        <li>JS / TS / Vue / React <div class="progress"><div class="progress-bar" style="width: 80%">intermediate</div></div></li>
+                        <li>PHP / Laravel <div class="progress"><div class="progress-bar" style="width: 75%">intermediate</div></div></li>
+                        <li>SQL & NoSQL <div class="progress"><div class="progress-bar" style="width: 70%">intermediate</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Static Typed -->
+            <div class="skill-card">
+                <div class="skill-card__front">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="skill-icon" />
+                    <h1 class="skills__title">Static-Typed Languages</h1>
+                </div>
+                <div class="skill-card__back">
+                    <ul>
+                        <li>C++ <div class="progress"><div class="progress-bar" style="width: 75%">intermediate</div></div></li>
+                        <li>C <div class="progress"><div class="progress-bar" style="width: 70%">intermediate</div></div></li>
+                        <li>Java <div class="progress"><div class="progress-bar" style="width: 65%">intermediate</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Dynamic Typed -->
+            <div class="skill-card">
+                <div class="skill-card__front">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" />
+                    <h1 class="skills__title">Dynamic-Typed Languages</h1>
+                </div>
+                <div class="skill-card__back">
+                    <ul>
+                        <li>Python <div class="progress"><div class="progress-bar" style="width: 60%">intermediate</div></div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Others -->
+            <div class="skill-card">
+                <div class="skill-card__front">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="skill-icon" />
+                    <h1 class="skills__title">Others</h1>
+                </div>
+                <div class="skill-card__back">
+                    <ul>
+                        <li>Cloud (Azure & GCP) <div class="progress"><div class="progress-bar" style="width: 70%">intermediate</div></div></li>
+                        <li>Docker <div class="progress"><div class="progress-bar" style="width: 60%">intermediate</div></div></li>
+                        <li>OOP <div class="progress"><div class="progress-bar" style="width: 85%">advanced</div></div></li>
+                        <li>DSA <div class="progress"><div class="progress-bar" style="width: 75%">intermediate</div></div></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Activity -->
+        <section class="activity section" id="activity">
+            <h2 class="section__title">Activity</h2>
+            <span class="section__subtitle">Leadership, volunteering, and university activities
+            </span>
+            <div class="activity__container container swiper">
+                <div class="swiper-wrapper">
+                    <!-- Activity 9 -->
+                <div class="activity__card">
+                    <img src="../assets/img/preview.jpg" class="activity__img" alt="Activities and Leadership">
+                    <div class="activity__info">
+
+                        <span class="activity__date">
+                            <i class="uil uil-award"></i>
+                            2021 – Present
+                        </span>
+                        
+                       <h3>Leadership, Volunteering & Professional Development</h3>
+
+                        <p>
+                             <p>
+                                Throughout my university journey, I have actively participated in
+                                leadership roles, volunteering initiatives, community engagement
+                                projects, technology conferences, bootcamps, and faculty events.
+                                These experiences have strengthened my leadership, teamwork,
+                                communication, project management, and problem-solving skills while
+                                allowing me to contribute meaningfully to both the university and
+                                wider community.
+                            </p>
+                        </p>
+                        <br>
+                        <div class="activity__buttons">
+                            <a href="activity.html"
+                            class="button button--flex">
+                                View Activities
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+
+                            <a href="assets/files/activities.pdf"
+                            target="_blank"
+                            class="button button--flex button--white">
+                                View Portfolio
+                                <i class="uil uil-file-alt button__icon"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Project -->
+        <section class="project section" id="project">
+        <h2 class="section__title">Open Source Projects</h2>
+        <span class="section__subtitle">Featured GitHub Projects</span>
+
+        <div class="project-grid">
+            <!-- Card 1 -->
+            <div class="project-box">
+                <img src="../assets/img/preview.jpg" class="activity__img" alt="Activities and Leadership">
+                <h3 class="project-name">📂 Ultimate Athletic Gym Management System (UAGMS)</h3>
+                <p class="project-description">
+                    🚀 Software Developer Portfolio Template that helps you showcase your work beautifully.
+                </p>
+                <div class="project-tech">
+                    <span>🟡 JavaScript</span>
+                    <span>🍴 2899</span>
+                    <span>⭐ 5588</span>
+                    <span>💾 27.7 MB</span>
+                </div>
+                <br>
+                <div class="activity__buttons">
+                            <a href="activity.html"
+                            class="button button--flex">
+                                View Activities
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+
+                            <a href="assets/files/activities.pdf"
+                            target="_blank"
+                            class="button button--flex button--white">
+                                View Portfolio
+                                <i class="uil uil-file-alt button__icon"></i>
+                            </a>
+
+                        </div>
+            </div>
+
+        </div>
+
+        
+        <div class="more-projects">
+            <a href="project.html" class="more-button">
+                View More Projects
+            <i class="uil uil-arrow-right button__icon"></i>
+            </a>
+        </div>
+        </section>
+
+
+
+        <!-- Contact Me -->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div class="contact__wrapper">
+                    <div class="contact__info">
+                        <a href="https://www.linkedin.com/in/mdhamka" target="_blank"><i class="uil uil-linkedin contact__icon"
+                                title="Click to chat"></i></a>
+                        <div>
+                            <h3 class="contact__title">LinkedIn</h3>
+                            <span class="contact__subtitle">Mohd Hamka</span>
+                        </div>
+                    </div>
+                    <div class="contact__info">
+                        <a href="https://github.com/mhdhamka" target="_blank"><i class="uil uil-github contact__icon"
+                                title="Click to chat"></i></a>
+                        <div>
+                            <h3 class="contact__title">GitHub</h3>
+                            <span class="contact__subtitle">mhdhamka</span>
+                        </div>
+                    </div>
+                    <div class="contact__info">
+                        <i class="uil uil-envelope contact__icon email-icon" title="Copy email"></i>
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle">m.hamka017@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h2 class="footer__title">Mohd Hamka</h2>
+                    <span class="footer__subtitle">Software Engineer</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#home" class="footer__link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="footer__link">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/in/mdhamka/" class="footer__social" target="_blank">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://github.com/mhdhamka" class="footer__social" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="uil uil-github"></i>
+                    </a>
+                    <a href="https://x.com/mdhamka_" class="footer__social" target="_blank">
+                        <i class="uil uil-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; 2026 mdhamka <br>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#home" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+
+
+    <!-- SwiperJS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- ScrollRevealJS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+
+</html>
