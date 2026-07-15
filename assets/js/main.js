@@ -57,24 +57,103 @@ skillsHeader.forEach((el) => {
 
 
 /*==================== QUALIFICATION TABS ====================*/
-const tabs = document.querySelectorAll('[data-target]'),
-    tabContents = document.querySelectorAll('[data-content]')
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const target = document.querySelector(tab.dataset.target)
+document.addEventListener("DOMContentLoaded", () => {
 
-        tabContents.forEach(tabContent => {
-            tabContent.classList.remove('qualification__active')
-        })
-        target.classList.add('qualification__active')
+    const qualificationTabs = document.querySelectorAll(
+        ".qualification__button"
+    );
 
-        tabs.forEach(tab => {
-            tab.classList.remove('qualification__active')
-        })
-        tab.classList.add('qualification__active')
-    })
-})
+    const qualificationContents = document.querySelectorAll(
+        ".qualification__content"
+    );
+
+
+    // Check if qualification section exists
+    if (
+        qualificationTabs.length === 0 ||
+        qualificationContents.length === 0
+    ) {
+        console.warn(
+            "Qualification tabs or contents not found."
+        );
+        return;
+    }
+
+    qualificationTabs.forEach(tab => {
+
+        tab.addEventListener("click", function () {
+
+
+            const targetId = this.dataset.target;
+
+
+            const targetContent = document.querySelector(
+                targetId
+            );
+
+
+            // Prevent error if target missing
+            if (!targetContent) {
+
+                console.error(
+                    `Cannot find qualification content: ${targetId}`
+                );
+
+                return;
+
+            }
+
+            /*
+            ============================
+            Remove Previous Active State
+            ============================
+            */
+            qualificationTabs.forEach(tab => {
+
+                tab.classList.remove(
+                    "qualification__active"
+                );
+
+            });
+
+            qualificationContents.forEach(content => {
+
+                content.classList.remove(
+                    "qualification__active"
+                );
+
+            });
+
+
+            /*
+            ============================
+            Add New Active State
+            ============================
+            */
+            this.classList.add(
+                "qualification__active"
+            );
+
+
+            targetContent.classList.add(
+                "qualification__active"
+            );
+
+
+            /*
+            ============================
+            Debug (Remove Later)
+            ============================
+            */
+
+            console.log(
+                "Active qualification:",
+                targetId
+            );
+        });
+    });
+});
 
 /*==================== ACTIVITY SWIPER  ====================*/
 let swiperActivity = new Swiper(".activity__container", {
