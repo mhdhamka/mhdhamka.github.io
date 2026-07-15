@@ -1238,6 +1238,12 @@ body.light-theme .nav__link.active-link {
 
 }
 
+.project__more{
+    display:flex;
+    justify-content:center;
+    margin-top:3rem;
+}
+
 
 /*==================== CONTACT ME ====================*/
 .contact__container {
