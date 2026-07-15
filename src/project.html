@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UNICON -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- SwiperCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/code.PNG">
+
+    <title>mdhamka portfolio</title>
+</head>
+
+<body>
+    <!-- Header --> 
+    <header class="header" id="header"> 
+        <nav class="nav container"> 
+            <!-- Left: Logo -->  
+            <a href="../index.html" class="nav__logo">mdhamka Portfolio</a> 
+            <div class="nav__menu" id="nav-menu"> 
+                <ul class="nav__list grid"> 
+                    <li class="nav__item"> 
+                        <a href="#home" class="nav__link"> 
+                            <i class="uil uil-estate nav__icon"></i> Home 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#about" class="nav__link"> 
+                            <i class="uil uil-user nav__icon"></i> About 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#qualification" class="nav__link"> 
+                            <i class="uil uil-book-alt nav__icon"></i> Qualification 
+                        </a> 
+                    </li> 
+ 
+                    <li class="nav__item"> 
+                        <a href="#skills" class="nav__link"> 
+                            <i class="uil uil-wrench nav__icon"></i> Skills 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#activity" class="nav__link"> 
+                            <i class="uil uil-schedule nav__icon"></i> Activity 
+                        </a> 
+                    </li> 
+                    <li class="nav__item"> 
+                        <a href="#project" class="nav__link"> 
+                            <i class="uil uil-file-alt nav__icon"></i> Projects 
+                        </a> 
+                    </li>  
+                </ul> 
+                <i class="uil uil-times nav__close" id="nav-close"></i> 
+            </div> 
+ 
+            <div class="nav__btns"> 
+                <!-- Theme btn --> 
+                <i class="uil uil-moon change-theme" id="theme-button"></i> 
+ 
+                <div class="nav__toggle" id="nav-toggle"> 
+                    <i class="uil uil-apps"></i> 
+                </div> 
+            </div>
+        </nav> 
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <!-- Project -->
+        <section class="project section" id="project">
+        <h2 class="section__title">Open Source Projects</h2>
+        <span class="section__subtitle">Featured GitHub Projects</span>
+
+            <!-- Add more cards as needed -->
+             <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+
+                    <img src="../assets/img/uagms.png"
+                        alt="Gym Management System"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>Ultimate Athletic Gym Management System</h3>
+
+                        <p>
+                            A comprehensive web-based gym management system developed
+                            using PHP and MySQL that allows administrators to manage
+                            members, trainers, memberships, attendance and payments.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Bootstrap</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#WebDevelopment</span>
+                            <span>#DatabaseSystem</span>
+                            <span>#ManagementSystem</span>
+                            <span>#CRUD</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Ultimate-Athletic-Gym-Management-System"
+                                target="_blank"
+                                class="button button--small">
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+
+                            <a href="#" class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="../assets/img/smart.png"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>Tree Pacific Database System</h3>
+
+                        <p>
+                            A C++ console-based healthcare consultation system developed
+                            using object-oriented programming concepts to simulate
+                            patient consultation and health recommendations.
+                        </p>
+
+                        <div class="project-tags">
+
+                            <span>C++</span>
+                            <span>OOP</span>
+                            <span>Console</span>
+
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#CPlusPlus</span>
+                            <span>#ObjectOrientedProgramming</span>
+                            <span>#UniversityProject</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Tree-Pacific-Database-System"
+                                class="button button--small">
+
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+                            <a href="#" class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="../assets/img/arngren.png"
+                        alt="Gym Management System"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>Arngren e-Commerce System</h3>
+
+                        <p>
+                            A modern e-commerce platform featuring product management,
+                            shopping cart, order processing, user authentication,
+                            inventory management and an admin dashboard.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#ECommerce</span>
+                            <span>#WebDevelopment</span>
+                            <span>#OnlineStore</span>
+                            <span>#CRUD</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Arngren-e-Commerce-System"
+                                class="button button--small">
+
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+
+                            <a href="#"
+                                class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="../assets/img/smart.png"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>Smart Health Consulting System</h3>
+
+                        <p>
+                            A C++ console-based healthcare consultation system developed
+                            using object-oriented programming concepts to simulate
+                            patient consultation and health recommendations.
+                        </p>
+
+                        <div class="project-tags">
+
+                            <span>C++</span>
+                            <span>OOP</span>
+                            <span>Console</span>
+
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#CPlusPlus</span>
+                            <span>#ObjectOrientedProgramming</span>
+                            <span>#ConsoleApplication</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Smart-Health-Consulting-System"
+                                class="button button--small">
+
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+                            <a href="#" class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <img src="../assets/img/rest.png"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>Rakyat Electronic Sales Tracker</h3>
+
+                        <p>
+                        A C++ sales management system developed using data structures and
+                        algorithms to manage products, customer orders, receipts, and sales
+                        records efficiently.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>Linked List</span>
+                            <span>Sorting</span>
+                            <span>Searching</span>
+                        </div>
+                        <div class="project-hashtags">
+                              <span>#DataStructures</span>
+                              <span>#Algorithms</span>
+                              <span>#ConsoleApplication</span>
+                              <span>#ProgrammingProject</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Rakyat-Electronic-System"
+                                class="button button--small">
+
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+                            <a href="#" class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <img src="../assets/img/tkf.png"
+                        class="project-img">
+
+                    <div class="project-content">
+                        <h3>TKF Restaurant Payment System</h3>
+
+                        <p>
+                            A C console-based restaurant payment system that simulates food ordering,
+                            payment calculation, and transaction recording using structured programming,
+                            arrays, functions, and file processing.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>C</span>
+                            <span>Functions</span>
+                            <span>Array</span>
+                            <span>File Processing</span>
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#CProgramming</span>
+                            <span>#StructuredProgramming</span>
+                            <span>#ConsoleApplication</span>
+                            <span>#UniversityProject</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/TKF-Restaurant-Payment-System"
+                                class="button button--small">
+
+                                <i class="uil uil-github"></i>
+                                Github Repository
+                            </a>
+                            <a href="#" class="button button--small button--ghost">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h2 class="footer__title">Mohd Hamka</h2>
+                    <span class="footer__subtitle">Software Engineer</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="../index.html" class="footer__link">Home</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#project" class="footer__link">Projects</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#contact" class="footer__link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/in/mdhamka/" class="footer__social" target="_blank">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://github.com/mhdhamka" class="footer__social" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="uil uil-github"></i>
+                    </a>
+                    <a href="https://x.com/mdhamka_" class="footer__social" target="_blank">
+                        <i class="uil uil-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; 2026 mdhamka <br>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#home" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+
+
+    <!-- SwiperJS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- ScrollRevealJS -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+</body>
+</html>
