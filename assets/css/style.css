@@ -2054,3 +2054,106 @@ body.light-theme .nav__link.active-link {
   }
 
 }
+
+/* =========================
+   GitHub Section
+========================= */
+
+.github__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.github__stats {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px rgba(138, 43, 226, 0.4);
+
+    transition: 0.3s ease;
+}
+
+
+.github__stats:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 35px rgba(0, 255, 255, 0.5);
+
+}
+
+
+/* GitHub Contribution Snake */
+
+.github-calendar {
+    width: 700px;
+    max-width: 100%;
+
+    margin: 3rem auto 0;
+    padding: 2rem;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(15,15,35,0.9),
+        rgba(40,20,80,0.8)
+    );
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 30px rgba(138,43,226,0.35);
+
+    overflow: hidden;
+}
+
+
+.github__snake {
+
+    width: 100%;
+    height: auto;
+
+    filter:
+    drop-shadow(0 0 15px #8a2be2)
+    drop-shadow(0 0 25px #00ffff);
+
+}
+
+/* GitHub Button */
+
+.github__button {
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 2.5rem;
+
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+
+    .github__container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .github__stats {
+
+        max-width: 100%;
+
+    }
+
+}
