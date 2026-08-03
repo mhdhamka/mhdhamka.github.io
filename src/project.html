@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/project.css">
     <!-- SwiperCSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
@@ -26,28 +27,28 @@
             <div class="nav__menu" id="nav-menu"> 
                 <ul class="nav__list grid"> 
                     <li class="nav__item"> 
-                        <a href="#home" class="nav__link"> 
+                        <a href="../index.html#home" class="nav__link"> 
                             <i class="uil uil-estate nav__icon"></i> Home 
                         </a> 
                     </li> 
                     <li class="nav__item"> 
-                        <a href="#about" class="nav__link"> 
+                        <a href="../index.html#about" class="nav__link"> 
                             <i class="uil uil-user nav__icon"></i> About 
                         </a> 
                     </li> 
                     <li class="nav__item"> 
-                        <a href="#qualification" class="nav__link"> 
+                        <a href="../index.html#qualification" class="nav__link"> 
                             <i class="uil uil-book-alt nav__icon"></i> Qualification 
                         </a> 
                     </li> 
  
                     <li class="nav__item"> 
-                        <a href="#skills" class="nav__link"> 
+                        <a href="../index.html#skills" class="nav__link"> 
                             <i class="uil uil-wrench nav__icon"></i> Skills 
                         </a> 
                     </li> 
                     <li class="nav__item"> 
-                        <a href="#activity" class="nav__link"> 
+                        <a href="../index.html#activity" class="nav__link"> 
                             <i class="uil uil-schedule nav__icon"></i> Activity 
                         </a> 
                     </li> 
@@ -73,29 +74,75 @@
 
     <!-- Main -->
     <main class="main">
-        <!-- Project -->
+        <!-- Project Section -->
         <section class="project section" id="project">
-        <h2 class="section__title">Open Source Projects</h2>
-        <span class="section__subtitle">Featured GitHub Projects</span>
+            <h2 class="section__title">Featured Projects</h2>
+            <span class="section__subtitle">A collection of web applications, software systems, and engineering projects</span>
 
-            <!-- Add more cards as needed -->
-             <div class="project-grid">
+            <!-- Search Bar -->
+            <div class="project__search container">
+                <input type="text" id="project-search" placeholder="Search project..." />
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="project__filters container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+                <button class="filter-btn" data-filter="console">Console</button>
+            </div>
+
+            <!-- Sort Select -->
+            <div class="project__sort container">
+                <label for="project-sort">Sort by: </label>
+                <select id="project-sort">
+                    <option value="default">Default</option>
+                    <option value="az">Name (A-Z)</option>
+                    <option value="za">Name (Z-A)</option>
+                </select>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="project-grid" id="project-grid">
+
                 <!-- Project 1 -->
-                <div class="project-card">
-
-                    <img src="../assets/img/uagms.png"
-                        alt="Gym Management System"
-                        class="project-img">
-
+                <article class="project-card" data-category="fullstack web" data-title="Price Checker System" data-repo="mhdhamka/Price-Checker-System">
+                    <img src="../assets/img/pcs.png" class="project-img" alt="Price Checker System Preview">
                     <div class="project-content">
-                        <h3>Ultimate Athletic Gym Management System</h3>
-
-                        <p>
-                            A comprehensive web-based gym management system developed
-                            using PHP and MySQL that allows administrators to manage
-                            members, trainers, memberships, attendance and payments.
+                        <span class="project-type">FULL-STACK WEB APP</span>
+                        <h3 class="project-title">Price Checker System</h3>
+                        <p class="project-description">
+                            A modern price comparison & analytics platform enabling students to compare grocery prices across stores, feature a community forum, interactive Chart.js dashboards, automated PDF/Excel export center, audit logging, and dark mode support.
                         </p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript / AJAX</span>
+                            <span>Bootstrap 5</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#PriceComparison</span>
+                            <span>#AnalyticsPlatform</span>
+                            <span>#FullStack</span>
+                            <span>#CommunityForum</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Price-Checker-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- Project 2 -->
+                <article class="project-card" data-category="web" data-title="Ultimate Athletic Gym Management System" data-repo="mhdhamka/Ultimate-Athletic-Gym-Management-System">
+                    <img src="../assets/img/uagms.png" class="project-img" alt="Gym Management System Preview">
+                    <div class="project-content">
+                        <span class="project-type">WEB APPLICATION</span>
+                        <h3 class="project-title">Ultimate Athletic Gym Management System</h3>
+                        <p class="project-description">
+                            A comprehensive web-based gym management system developed using PHP and MySQL that allows administrators to manage members, trainers, memberships, attendance, and payments.
+                        </p>
                         <div class="project-tags">
                             <span>PHP</span>
                             <span>MySQL</span>
@@ -108,78 +155,51 @@
                             <span>#ManagementSystem</span>
                             <span>#CRUD</span>
                         </div>
-
                         <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/Ultimate-Athletic-Gym-Management-System"
-                                target="_blank"
-                                class="button button--small">
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-
-                            <a href="#" class="button button--small button--ghost">
-                                Details
-                            </a>
+                            <a href="https://github.com/mhdhamka/Ultimate-Athletic-Gym-Management-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
                         </div>
                     </div>
-                </div>  
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="../assets/img/smart.png"
-                        class="project-img">
-
-                    <div class="project-content">
-                        <h3>Tree Pacific Database System</h3>
-
-                        <p>
-                            A C++ console-based healthcare consultation system developed
-                            using object-oriented programming concepts to simulate
-                            patient consultation and health recommendations.
-                        </p>
-
-                        <div class="project-tags">
-
-                            <span>C++</span>
-                            <span>OOP</span>
-                            <span>Console</span>
-
-                        </div>
-                        <div class="project-hashtags">
-                            <span>#CPlusPlus</span>
-                            <span>#ObjectOrientedProgramming</span>
-                            <span>#UniversityProject</span>
-                        </div>
-
-                        <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/Tree-Pacific-Database-System"
-                                class="button button--small">
-
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-                            <a href="#" class="button button--small button--ghost">
-                                Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="../assets/img/arngren.png"
-                        alt="Gym Management System"
-                        class="project-img">
-
+                <article class="project-card" data-category="fullstack web" data-title="PacificTree: Enterprise GIS & Forestry Operations Platform" data-repo="mhdhamka/Tree-Pacific-Database-System">
+                    <img src="../assets/img/tree.png" class="project-img" alt="PacificTree GIS Platform Preview">
                     <div class="project-content">
-                        <h3>Arngren e-Commerce System</h3>
-
-                        <p>
-                            A modern e-commerce platform featuring product management,
-                            shopping cart, order processing, user authentication,
-                            inventory management and an admin dashboard.
+                        <span class="project-type">FULL-STACK WEB & GIS</span>
+                        <h3 class="project-title">PacificTree: Enterprise GIS & Forestry Operations Platform</h3>
+                        <p class="project-description">
+                            A full-stack enterprise web application for commercial forestry management, featuring real-time spatial mapping with Leaflet.js, tree inventory tracking, role-based client portals, interactive analytics, and automated document generation.
                         </p>
+                        <div class="project-tags">
+                            <span>PHP (OOP)</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                            <span>Leaflet.js</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <div class="project-hashtags">
+                            <span>#GISMapping</span>
+                            <span>#ForestryManagement</span>
+                            <span>#FullStack</span>
+                            <span>#RBAC</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/mhdhamka/Tree-Pacific-Database-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- Project 4 -->
+                <article class="project-card" data-category="web" data-title="Arngren e-Commerce System" data-repo="mhdhamka/Arngren-e-Commerce-System">
+                    <img src="../assets/img/arngren.png" class="project-img" alt="Arngren e-Commerce System Preview">
+                    <div class="project-content">
+                        <span class="project-type">WEB APPLICATION</span>
+                        <h3 class="project-title">Arngren e-Commerce System</h3>
+                        <p class="project-description">
+                            A modern e-commerce platform featuring product management, shopping cart, order processing, user authentication, inventory management, and an admin dashboard.
+                        </p>
                         <div class="project-tags">
                             <span>PHP</span>
                             <span>MySQL</span>
@@ -191,78 +211,50 @@
                             <span>#OnlineStore</span>
                             <span>#CRUD</span>
                         </div>
-
                         <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/Arngren-e-Commerce-System"
-                                class="button button--small">
-
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-
-                            <a href="#"
-                                class="button button--small button--ghost">
-                                Details
-                            </a>
+                            <a href="https://github.com/mhdhamka/Arngren-e-Commerce-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <img src="../assets/img/smart.png"
-                        class="project-img">
-
+                <!-- Project 5 -->
+                <article class="project-card" data-category="console" data-title="SmartHealth System" data-repo="mhdhamka/Smart-Health-Consulting-System">
+                    <img src="../assets/img/smart.png" class="project-img" alt="SmartHealth System Preview">
                     <div class="project-content">
-                        <h3>Smart Health Consulting System</h3>
-
-                        <p>
-                            A C++ console-based healthcare consultation system developed
-                            using object-oriented programming concepts to simulate
-                            patient consultation and health recommendations.
+                        <span class="project-type">C++ OOP CONSOLE APP</span>
+                        <h3 class="project-title">SmartHealth System</h3>
+                        <p class="project-description">
+                            An enhanced C++ Object-Oriented healthcare management platform featuring multi-role access (Patient, Doctor, Admin), medical record tracking, appointment booking, payment processing, and modular C++ architecture with file-based data storage.
                         </p>
-
                         <div class="project-tags">
-
                             <span>C++</span>
-                            <span>OOP</span>
-                            <span>Console</span>
-
+                            <span>OOP Architecture</span>
+                            <span>Header Separation</span>
+                            <span>File I/O</span>
                         </div>
                         <div class="project-hashtags">
                             <span>#CPlusPlus</span>
-                            <span>#ObjectOrientedProgramming</span>
-                            <span>#ConsoleApplication</span>
+                            <span>#ObjectOriented</span>
+                            <span>#HealthcareManagement</span>
+                            <span>#ModularDesign</span>
                         </div>
-
                         <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/Smart-Health-Consulting-System"
-                                class="button button--small">
-
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-                            <a href="#" class="button button--small button--ghost">
-                                Details
-                            </a>
+                            <a href="https://github.com/mhdhamka/Smart-Health-Consulting-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Project 5 -->
-                <div class="project-card">
-                    <img src="../assets/img/rest.png"
-                        class="project-img">
-
+                <!-- Project 6 -->
+                <article class="project-card" data-category="console" data-title="Rakyat Electronic Sales Tracker" data-repo="mhdhamka/Rakyat-Electronic-System">
+                    <img src="../assets/img/rest.png" class="project-img" alt="Rakyat Electronic Sales Tracker Preview">
                     <div class="project-content">
-                        <h3>Rakyat Electronic Sales Tracker</h3>
-
-                        <p>
-                        A C++ sales management system developed using data structures and
-                        algorithms to manage products, customer orders, receipts, and sales
-                        records efficiently.
+                        <span class="project-type">CONSOLE APPLICATION</span>
+                        <h3 class="project-title">Rakyat Electronic Sales Tracker</h3>
+                        <p class="project-description">
+                            A C++ sales management system developed using data structures and algorithms to manage products, customer orders, receipts, and sales records efficiently.
                         </p>
-
                         <div class="project-tags">
                             <span>C++</span>
                             <span>Linked List</span>
@@ -270,69 +262,103 @@
                             <span>Searching</span>
                         </div>
                         <div class="project-hashtags">
-                              <span>#DataStructures</span>
-                              <span>#Algorithms</span>
-                              <span>#ConsoleApplication</span>
-                              <span>#ProgrammingProject</span>
+                            <span>#DataStructures</span>
+                            <span>#Algorithms</span>
+                            <span>#ConsoleApplication</span>
                         </div>
-
                         <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/Rakyat-Electronic-System"
-                                class="button button--small">
-
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-                            <a href="#" class="button button--small button--ghost">
-                                Details
-                            </a>
+                            <a href="https://github.com/mhdhamka/Rakyat-Electronic-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Project 6 -->
-                <div class="project-card">
-                    <img src="../assets/img/tkf.png"
-                        class="project-img">
-
+                <!-- Project 7 -->
+                <article class="project-card" data-category="console" data-title="TKF Restaurant Payment System" data-repo="mhdhamka/TKF-Restaurant-Payment-System">
+                    <img src="../assets/img/tkf.png" class="project-img" alt="TKF Restaurant POS Preview">
                     <div class="project-content">
-                        <h3>TKF Restaurant Payment System</h3>
-
-                        <p>
-                            A C console-based restaurant payment system that simulates food ordering,
-                            payment calculation, and transaction recording using structured programming,
-                            arrays, functions, and file processing.
+                        <span class="project-type">CONSOLE POS APPLICATION</span>
+                        <h3 class="project-title">TKF Restaurant Payment System</h3>
+                        <p class="project-description">
+                            An enhanced modular C console-based Point-of-Sale (POS) system simulating food ordering, shopping cart management, member discounts, admin menu management, and persistent transaction logging.
                         </p>
-
                         <div class="project-tags">
                             <span>C</span>
-                            <span>Functions</span>
-                            <span>Array</span>
-                            <span>File Processing</span>
+                            <span>GCC / MSYS2</span>
+                            <span>Structs</span>
+                            <span>Modular C</span>
+                            <span>File Handling</span>
                         </div>
                         <div class="project-hashtags">
                             <span>#CProgramming</span>
-                            <span>#StructuredProgramming</span>
-                            <span>#ConsoleApplication</span>
-                            <span>#UniversityProject</span>
+                            <span>#ModularArchitecture</span>
+                            <span>#POSConsole</span>
                         </div>
-
                         <div class="project-buttons">
-                            <a href="https://github.com/mhdhamka/TKF-Restaurant-Payment-System"
-                                class="button button--small">
-
-                                <i class="uil uil-github"></i>
-                                Github Repository
-                            </a>
-                            <a href="#" class="button button--small button--ghost">
-                                Details
-                            </a>
+                            <a href="https://github.com/mhdhamka/TKF-Restaurant-Payment-System" target="_blank" class="button">GitHub</a>
+                            <button class="button open-modal-btn">Details</button>
                         </div>
                     </div>
-                </div>
+                </article>
+
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="project__pagination container" id="project-pagination">
+                <button id="prev-page">Previous</button>
+                <div id="page-numbers"></div>
+                <button id="next-page">Next</button>
+            </div>
+        </section>
+
+        <!-- Modal Component -->
+        <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+            <div class="modal-overlay" id="modal-overlay" tabindex="-1"></div>
+        
+        <div class="modal-container" role="document">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            
+            <div class="modal-header">
+            <span id="modal-category" class="project-type modal-category">CATEGORY</span>
+            <h3 id="modal-title" class="modal-title">Project Title</h3>
+            
+            <!-- Modern Glassmorphism GitHub Button -->
+            <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="modal-github-link">
+                <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
+                </svg>
+                <span>View on GitHub</span>
+                <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M4.22 11.78a.75.75 0 0 1 0-1.06L9.44 5.5H5.75a.75.75 0 0 1 0-1.5h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V6.56l-5.22 5.22a.75.75 0 0 1-1.06 0Z" clip-rule="evenodd"/>
+                </svg>
+            </a>
+            </div>
+
+            <!-- Live GitHub Stats Banner -->
+            <div class="modal-stats" id="modal-stats">
+            <div class="stat-box">
+                <span aria-hidden="true">⭐</span> Stars: <span id="stat-stars">...</span>
+            </div>
+            <div class="stat-box">
+                <span aria-hidden="true">🍴</span> Forks: <span id="stat-forks">...</span>
+            </div>
+            <div class="stat-box">
+                <span aria-hidden="true">⚡</span> Primary: <span id="stat-lang">...</span>
+            </div>
+            <div class="stat-box">
+                <span aria-hidden="true">📅</span> Updated: <span id="stat-updated">...</span>
+            </div>
+            </div>
+
+            <div class="modal-body">
+            <h4>Key Highlights &amp; Insights</h4>
+            <ul id="modal-highlights"></ul>
+
+            <h4>Tech Stack &amp; Architecture</h4>
+            <p id="modal-architecture"></p>
             </div>
         </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -375,7 +401,7 @@
     </footer>
 
     <!-- Scroll Top -->
-    <a href="#home" class="scrollup" id="scroll-up">
+    <a href="#project" class="scrollup" id="scroll-up">
         <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
 
@@ -388,6 +414,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/project.js"></script>
 
 </body>
 </html>
