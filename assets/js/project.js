@@ -21,6 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==================== EMBEDDED PROJECT INSIGHTS DATA ====================
     const projectsData = [
         {
+            "repo": "mhdhamka/DevSandBox",
+            "title": "DevSandBox Engine",
+            "category": "INTERACTIVE PORTFOLIO PLATFORM",
+            "highlights": [
+                "Interactive, terminal-inspired workspace showcasing live spec telemetry and custom dynamic UI themes.",
+                "Embedded AI Copilot smart filter allowing natural language project discovery and quick preset queries.",
+                "Built-in Project Modal Inspector featuring live code snippets, automated logic breakdowns, and architecture visual maps."
+            ],
+            "architecture": "React 18, JavaScript, Tailwind CSS, Bootstrap 5, Framer Motion, Context API"
+        },
+        {
             "repo": "mhdhamka/Price-Checker-System",
             "title": "Price Checker System",
             "category": "FULL-STACK WEB APP",
@@ -218,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = card.querySelector('.project-title')?.textContent || card.dataset.title || 'Project Details';
             const type = card.querySelector('.project-type')?.textContent || card.dataset.category || 'Repository';
             const tags = card.querySelector('.project-tags')?.innerHTML || '';
-            const repoPath = card.dataset.repo; // e.g. "mhdhamka/Price-Checker-System"
+            const repoPath = card.dataset.repo; // e.g. "mhdhamka/DevSandBox"
 
             // Set static fallback text on UI
             if (modalTitleEl) modalTitleEl.textContent = title;

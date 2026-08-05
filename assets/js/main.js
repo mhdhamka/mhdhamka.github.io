@@ -4,7 +4,6 @@ const navMenu = document.getElementById('nav-menu'),
     navClose = document.getElementById('nav-close')
 
 /*===== MENU SHOW =====*/
-/* Validate if constant exists */
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu')
@@ -12,7 +11,6 @@ if (navToggle) {
 }
 
 /*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
 if (navClose) {
     navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu')
@@ -27,14 +25,6 @@ function linkAction() {
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-// Copy Email to Clipboard
-const emailIcon = document.querySelectorAll('.email-icon')
-
-function copyEmail() {
-    var email = "m.hamka017@gmail.com";
-    window.open('mailto:' + email);
-}
-emailIcon.forEach(n => n.addEventListener('click', copyEmail))
 
 /*==================== SHOW/HIDE SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills__content'),
@@ -43,7 +33,7 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 function toggleSkills() {
     let itemClass = this.parentNode.className
 
-    for (i = 0; i < skillsContent.length; i++) {
+    for (let i = 0; i < skillsContent.length; i++) {
         skillsContent[i].className = 'skills__content skills__close'
     }
     if (itemClass === 'skills__content skills__close') {
@@ -56,109 +46,141 @@ skillsHeader.forEach((el) => {
 })
 
 
-/*==================== QUALIFICATION TABS ====================*/
-
+/*==================== DOM CONTENT LOADED (TYPING, COPY EMAIL, QUALIFICATIONS, SKILL CARDS) ====================*/
 document.addEventListener("DOMContentLoaded", () => {
 
-    const qualificationTabs = document.querySelectorAll(
-        ".qualification__button"
-    );
+    /* ==================== TYPING EFFECT ==================== */
+    const typedTextSpan = document.querySelector(".typed-text");
+    const roles = ["Software Engineer", "Full-Stack Developer", "GIS Explorer", "UI/UX Enthusiast"];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000;
+    let roleIndex = 0;
+    let charIndex = 0;
 
-    const qualificationContents = document.querySelectorAll(
-        ".qualification__content"
-    );
-
-
-    // Check if qualification section exists
-    if (
-        qualificationTabs.length === 0 ||
-        qualificationContents.length === 0
-    ) {
-        console.warn(
-            "Qualification tabs or contents not found."
-        );
-        return;
+    function type() {
+        if (charIndex < roles[roleIndex].length) {
+            typedTextSpan.textContent += roles[roleIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            setTimeout(erase, newTextDelay);
+        }
     }
 
-    qualificationTabs.forEach(tab => {
+    function erase() {
+        if (charIndex > 0) {
+            typedTextSpan.textContent = roles[roleIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(type, typingDelay + 300);
+        }
+    }
 
-        tab.addEventListener("click", function () {
+    if (typedTextSpan) setTimeout(type, 500);
 
 
-            const targetId = this.dataset.target;
+    /* ==================== COPY EMAIL TO CLIPBOARD ==================== */
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyTooltip = document.getElementById('copyTooltip');
+    const userEmail = "m.hamka017@gmail.com";
 
+    if (copyEmailBtn && copyTooltip) {
+        const handleCopy = () => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(userEmail).then(() => {
+                    const originalText = copyTooltip.textContent;
+                    copyTooltip.textContent = "Copied!";
+                    copyTooltip.classList.add("show");
+                    copyEmailBtn.style.background = "#10b981"; // Success green glow
+                    copyEmailBtn.style.boxShadow = "0 0 15px rgba(16, 185, 129, 0.6)";
 
-            const targetContent = document.querySelector(
-                targetId
-            );
-
-
-            // Prevent error if target missing
-            if (!targetContent) {
-
-                console.error(
-                    `Cannot find qualification content: ${targetId}`
-                );
-
-                return;
-
+                    setTimeout(() => {
+                        copyTooltip.textContent = originalText;
+                        copyTooltip.classList.remove("show");
+                        copyEmailBtn.style.background = "";
+                        copyEmailBtn.style.boxShadow = "";
+                    }, 2000);
+                }).catch(err => {
+                    console.error("Failed to copy email: ", err);
+                    window.location.href = `mailto:${userEmail}`;
+                });
+            } else {
+                window.location.href = `mailto:${userEmail}`;
             }
+        };
 
-            /*
-            ============================
-            Remove Previous Active State
-            ============================
-            */
-            qualificationTabs.forEach(tab => {
-
-                tab.classList.remove(
-                    "qualification__active"
-                );
-
-            });
-
-            qualificationContents.forEach(content => {
-
-                content.classList.remove(
-                    "qualification__active"
-                );
-
-            });
+        copyEmailBtn.addEventListener('click', handleCopy);
+        copyEmailBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCopy();
+            }
+        });
+    }
 
 
-            /*
-            ============================
-            Add New Active State
-            ============================
-            */
-            this.classList.add(
-                "qualification__active"
-            );
+    /* ==================== SKILL CARDS INTERACTIVITY ==================== */
+    const skillCards = document.querySelectorAll('.skill-card');
 
+    skillCards.forEach(card => {
+        // 1. Mouse-following spotlight effect
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-            targetContent.classList.add(
-                "qualification__active"
-            );
-
-
-            /*
-            ============================
-            Debug (Remove Later)
-            ============================
-            */
-
-            console.log(
-                "Active qualification:",
-                targetId
-            );
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+
+    // 2. IntersectionObserver to trigger progress bar animations on scroll
+    if ('IntersectionObserver' in window) {
+        const skillsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        skillCards.forEach(card => skillsObserver.observe(card));
+    }
+
+
+    /* ==================== QUALIFICATION TABS ==================== */
+    const qualificationTabs = document.querySelectorAll(".qualification__button");
+    const qualificationContents = document.querySelectorAll(".qualification__content");
+
+    if (qualificationTabs.length > 0 && qualificationContents.length > 0) {
+        qualificationTabs.forEach(tab => {
+            tab.addEventListener("click", function () {
+                const targetId = this.dataset.target;
+                const targetContent = document.querySelector(targetId);
+
+                if (!targetContent) {
+                    console.error(`Cannot find qualification content: ${targetId}`);
+                    return;
+                }
+
+                qualificationTabs.forEach(t => t.classList.remove("qualification__active"));
+                qualificationContents.forEach(c => c.classList.remove("qualification__active"));
+
+                this.classList.add("qualification__active");
+                targetContent.classList.add("qualification__active");
+            });
+        });
+    }
 });
 
-/*==================== ACTIVITY SWIPER  ====================*/
+
+/*==================== ACTIVITY SWIPER ====================*/
 let swiperActivity = new Swiper(".activity__container", {
     loop: true,
-
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -174,25 +196,25 @@ let swiperActivity = new Swiper(".activity__container", {
 
 /*==================== PROJECT SWIPER ====================*/
 const swiper = new Swiper('.swiper', {
-  slidesPerView: 3,
-  spaceBetween: 20,
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        }
     },
-    1024: {
-      slidesPerView: 3,
-    }
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    loop: true,
 });
 
 
@@ -205,95 +227,99 @@ function scrollActive() {
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        const sectionId = current.getAttribute('id')
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.add('active-link')
         } else {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.remove('active-link')
         }
     })
 }
 window.addEventListener('scroll', scrollActive)
 
+
 /*==================== SHOW SCROLL UP ====================*/
 function scrollTop() {
     const scrollTop = document.getElementById('scroll-up');
 
-    if (this.scrollY >= 560) scrollTop.classList.add('show-scroll');
-    else scrollTop.classList.remove('show-scroll');
+    if (this.scrollY >= 560) scrollTop?.classList.add('show-scroll');
+    else scrollTop?.classList.remove('show-scroll');
 }
 window.addEventListener('scroll', scrollTop);
+
 
 /*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'uil-sun'
 
-// Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
 const selectedIcon = localStorage.getItem('selected-icon')
 
-// Functions to get current theme/icon
 const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
 
-// Apply saved theme or set default to dark
 if (selectedTheme) {
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+    if (themeButton) themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
 } else {
-    // No preference saved → set dark as default
     document.body.classList.add(darkTheme)
-    themeButton.classList.add(iconTheme)
+    if (themeButton) themeButton.classList.add(iconTheme)
 }
 
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+if (themeButton) {
+    themeButton.addEventListener('click', () => {
+        document.body.classList.toggle(darkTheme)
+        themeButton.classList.toggle(iconTheme)
+        localStorage.setItem('selected-theme', getCurrentTheme())
+        localStorage.setItem('selected-icon', getCurrentIcon())
+    })
+}
 
-/*==================== emailJS ====================*/
+
+/*==================== EMAILJS ====================*/
 const contactForm = document.getElementById('contact-form'),
     contactName = document.getElementById('contact-name'),
     contactEmail = document.getElementById('contact-email'),
     contactSubject = document.getElementById('contact-subject'),
     contactMessage = document.getElementById('contact-message')
 
-const sendEmail = (e) => {
-    e.preventDefault();
-    // serviceID - templateID - #form - publicKey
-    emailjs.sendForm('service_l0onzso', 'template_m0plumt', '#contact-form', 'Zx7aZX32cu8hTk5mJ')
-        .then(() => {
-            // show message sent
-            alert('Message sent');
-        }, (error) => {
-            alert('Fail to send, something went wrong\n' + error)
-        });
+if (contactForm) {
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_l0onzso', 'template_m0plumt', '#contact-form', 'Zx7aZX32cu8hTk5mJ')
+            .then(() => {
+                alert('Message sent');
+            }, (error) => {
+                alert('Fail to send, something went wrong\n' + error)
+            });
 
-    // clear input
-    contactName.value = ''; contactEmail.value = '';
-    contactSubject.value = ''; contactMessage.value = '';
+        if (contactName) contactName.value = '';
+        if (contactEmail) contactEmail.value = '';
+        if (contactSubject) contactSubject.value = '';
+        if (contactMessage) contactMessage.value = '';
+    }
+    contactForm.addEventListener('submit', sendEmail)
 }
-contactForm.addEventListener('submit', sendEmail)
 
-/*==================== Scroll Reveal ====================*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2000,
-})
 
-sr.reveal('.home__data');
-sr.reveal('.home__social', { delay: 200, origin: 'left' });
-sr.reveal('.home__img', { delay: 200, origin: 'right' });
-sr.reveal('.home__scroll', { delay: 400, interval: 100 });
-sr.reveal('.about__data', { origin: 'bottom' });
-sr.reveal('.qualification__tabs, .qualification__sections', { interval: 100 })
-sr.reveal('.skills__content:nth-child(odd)', { origin: 'left' });
-sr.reveal('.skills__content:nth-child(even)', { origin: 'right' });
-sr.reveal('.contact__wrapper', { origin: 'top' })
-sr.reveal('.contact__inputs div', { origin: 'bottom', interval: 100 })
+/*==================== SCROLL REVEAL ====================*/
+if (typeof ScrollReveal !== 'undefined') {
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '60px',
+        duration: 2000,
+    })
+
+    sr.reveal('.home__data');
+    sr.reveal('.home__social', { delay: 200, origin: 'left' });
+    sr.reveal('.home__img', { delay: 200, origin: 'right' });
+    sr.reveal('.home__scroll', { delay: 400, interval: 100 });
+    sr.reveal('.about__data', { origin: 'bottom' });
+    sr.reveal('.qualification__tabs, .qualification__sections', { interval: 100 })
+    sr.reveal('.skills__content:nth-child(odd)', { origin: 'left' });
+    sr.reveal('.skills__content:nth-child(even)', { origin: 'right' });
+    sr.reveal('.contact__wrapper', { origin: 'top' })
+    sr.reveal('.contact__inputs div', { origin: 'bottom', interval: 100 })
+}

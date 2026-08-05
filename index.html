@@ -79,50 +79,95 @@
 
     <!-- Main -->
     <main class="main">
-        <!-- Home -->
+        <!-- Home / Hero Section -->
         <section class="home section" id="home">
+            <!-- Interactive Sticky Social Dock (Left Screen Edge) -->
+            <div class="home__social sticky-social-dock">
+                <a href="https://www.linkedin.com/in/mdhamka/" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="LinkedIn">
+                    <i class="uil uil-linkedin-alt"></i>
+                    <span class="dock-tooltip">LinkedIn</span>
+                </a>
+                
+                <a href="https://github.com/mhdhamka" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="GitHub">
+                    <i class="uil uil-github-alt"></i>
+                    <span class="dock-tooltip">GitHub</span>
+                </a>
+                
+                <!-- Interactive Copy Email Wrapper -->
+                <div class="email-copy-wrapper home__social-icon" id="copyEmailBtn" aria-label="Copy Email" role="button" tabindex="0">
+                    <i class="uil uil-envelope email-icon"></i>
+                    <span class="dock-tooltip" id="copyTooltip">Copy Email</span>
+                </div>
+            </div>
+
             <div class="home__container container grid">
                 <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/mdhamka/" target="_blank" class="home__social-icon"
-                            title="Linkedin">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-                        <a href="https://github.com/mhdhamka" target="_blank" class="home__social-icon" title="Github">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                        <i class="uil uil-envelope home__social-icon email-icon" title="Copy email"></i>
+                    
+                    <!-- Hero Data / Text Content -->
+                    <div class="home__data">
+                        <!-- Status Badge -->
+                        <div class="home__status-badge">
+                            <span class="status-ping"></span>
+                            <span class="status-text"><code>status: open_to_work = true</code></span>
+                        </div>
 
+                        <h1 class="home__title">
+                            Holla, I'm <span id="name" class="highlight-text">mdhamka</span> <span class="wave-emoji">👋</span>
+                        </h1>
+                        
+                        <!-- Dynamic Typing Target -->
+                        <h3 class="home__subtitle">
+                            I'm a <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                        </h3>
+                        
+                        <p class="home__description">
+                            Computer Scientist &amp; Software Engineer specializing in full-stack web applications, interactive interfaces, and spatial GIS solutions.
+                        </p>
+
+                        <!-- Dual CTA Action Buttons -->
+                        <div class="home__buttons">
+                            <a href="#contact" class="button button--flex">
+                                Contact Me <i class="uil uil-message button__icon"></i>
+                            </a>
+                            <a target="_blank" href="assets/resume/mdhamka_resume.pdf" class="button button--flex button--ghost">
+                                Resume <i class="uil uil-download-alt button__icon"></i>
+                            </a>
+                        </div>
                     </div>
-                   <div class="home__img">
+
+                    <!-- Avatar / Graphic -->
+                    <div class="home__img">
                         <svg class="home__blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <clipPath id="circleMask">
-                                <circle cx="100" cy="100" r="100" />
-                            </clipPath>
-                        </defs>
-                        <image
-                            class="home__blob-img"
-                            x="0"
-                            y="0"
-                            width="200"
-                            height="200"
-                            xlink:href="assets/img/photo.jpg"
-                            clip-path="url(#circleMask)"
-                            preserveAspectRatio="xMidYMid slice"
-                        />
+                            <defs>
+                                <clipPath id="circleMask">
+                                    <circle cx="100" cy="100" r="90" />
+                                </clipPath>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="6" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- Interactive Animated Outer Ring -->
+                            <circle class="home__blob-ring" cx="100" cy="100" r="92" />
+
+                            <!-- Clipped Image -->
+                            <image
+                                class="home__blob-img"
+                                x="0"
+                                y="0"
+                                width="200"
+                                height="200"
+                                href="assets/img/photo.jpg"
+                                clip-path="url(#circleMask)"
+                                preserveAspectRatio="xMidYMid slice"
+                            />
                         </svg>
                     </div>
-                    <div class="home__data">
-                        <h1 class="home__title">Holla, I'm <span id="name">mdhamka</span></h1>
-                        <h3 class="home__subtitle">Software Engineer</h3>
-                        <p class="home__description">Aspiring software engineer with skills in programming, system design, and teamwork, plus experience in customer service and marketing.</p>
-                        <a target="_blank" href="assets/resume/mdhamka_resume.pdf" class="button button--flex">
-                            Download My Resume <i class="uil uil-download-alt button__icon"></i>
-                        </a>
-                    </div>
+
                 </div>
 
+                <!-- Scroll Indicator -->
                 <div class="home__scroll">
                     <a href="#about" class="home__scroll-button button--flex">
                         <i class="uil uil-mouse-alt home__scroll-mouse"></i>
@@ -130,25 +175,32 @@
                         <i class="uil uil-arrow-down home__scroll-arrow"></i>
                     </a>
                 </div>
-
             </div>
         </section>
 
-        <!-- About -->
+        <!-- About Section -->
         <section class="about section" id="about">
             <h2 class="section__title">About Me</h2>
             <span class="section__subtitle">Personal Summary</span>
 
             <div class="about__container container grid">
                 <!-- Animation / GIF -->
-                <div class="about__img">
-                    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmlodW10eXFvamlqNXJ6M3B0emc2YmdieWw1OHY5cmo0Y2p6bHE2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif" alt="About Me Animation">
-                </div>
+              <div class="about__img">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+                <dotlottie-player 
+                    src="https://assets2.lottiefiles.com/packages/lf20_w51pcehl.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 100%; height: auto;" 
+                    loop 
+                    autoplay>
+                </dotlottie-player>
+            </div>
 
                 <!-- About Content -->
                 <div class="about__data">
-                     <p class="about__description">Hi Everyone, I am Mohd Hamka from Kuching, Sarawak.
-                                          I am a Software Engineer that graduated from UNIMAS. Apart from coding, some other activities that I love to do like playing Games, and exploring trends of emerging tech. 
+                     <p class="about__description">
+                        Software Engineer & UNIMAS CS graduate from Kuching, Sarawak. Passionate about building software, gaming, and exploring emerging technology.
                     </p>
                 <!-- Info Cards -->
                 <div class="about__info-cards">
@@ -181,6 +233,7 @@
                 </div>
             </div>
         </section>
+
         
          <!-- Qualification -->
         <section class="qualification section" id="qualification">
@@ -426,202 +479,276 @@
             </div>
         </section>
 
-        <!-- Skills -->
+        <!-- Skills Section -->
         <section class="skills section" id="skills">
             <h2 class="section__title">Technical Skills</h2>
             <span class="section__subtitle">Technologies and tools I use to build reliable software solutions</span>
 
-            <div class="skills__container container grid">
+            <div class="skills__container container">
 
                 <!-- Frontend Development -->
                 <div class="skill-card">
                     <div class="skill-card__front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" />
-                        <h1 class="skills__title">Frontend Development</h1>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="skill-icon" alt="React" />
+                        <h3 class="skills__title">Frontend Development</h3>
                     </div>
 
                     <div class="skill-card__back">
-                        <ul>
-                            <li>HTML / CSS
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:90%">Advanced</div>
+                        <div class="skills__list">
+                            
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-react"></i> React 18 / Next.js 14</span>
+                                    <span class="skill__level">Advanced</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 90%;"></div>
+                                </div>
+                            </div>
 
-                            <li>JavaScript / TypeScript
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:80%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-javascripts"></i> JavaScript / TypeScript</span>
+                                    <span class="skill__level">Advanced</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 85%;"></div>
+                                </div>
+                            </div>
 
-                            <li>React / Next.js
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:75%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-palette"></i> Tailwind / Bootstrap 5</span>
+                                    <span class="skill__level">Advanced</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 90%;"></div>
+                                </div>
+                            </div>
 
-                            <li>Bootstrap / Tailwind CSS
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:85%">Advanced</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-layer-group"></i> Framer Motion &amp; Context</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 80%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
                 <!-- Backend Development -->
                 <div class="skill-card">
                     <div class="skill-card__front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="skill-icon" />
-                        <h1 class="skills__title">Backend Development</h1>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="skill-icon" alt="Laravel" />
+                        <h3 class="skills__title">Backend Development</h3>
                     </div>
 
                     <div class="skill-card__back">
-                        <ul>
-                            <li>PHP / Laravel
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:80%">Intermediate</div>
+                        <div class="skills__list">
+                            
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-server-network"></i> PHP / Laravel</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 80%;"></div>
+                                </div>
+                            </div>
 
-                            <li>Node.js / REST API
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:70%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-brackets-curly"></i> Node.js / Express</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 75%;"></div>
+                                </div>
+                            </div>
 
-                            <li>MySQL / MariaDB / PostgreSQL / MongoDB
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:80%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-database"></i> MySQL / PostgreSQL</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 80%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-hdd"></i> SQLite &amp; Prisma ORM</span>
+                                    <span class="skill__level">Intermediate</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 85%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
                 <!-- Programming Languages -->
                 <div class="skill-card">
                     <div class="skill-card__front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" />
-                        <h1 class="skills__title">Programming Languages</h1>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python" />
+                        <h3 class="skills__title">Programming Languages</h3>
                     </div>
 
                     <div class="skill-card__back">
-                        <ul>
-                            <li>C / C++
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:80%">Intermediate</div>
+                        <div class="skills__list">
+                            
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-code-branch"></i> C / C++</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 80%;"></div>
+                                </div>
+                            </div>
 
-                            <li>Java
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:60%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-terminal"></i> Python</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 75%;"></div>
+                                </div>
+                            </div>
 
-                            <li>Python
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:60%">Intermediate</div>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-coffee"></i> Java</span>
+                                    <span class="skill__level">Intermediate</span>
                                 </div>
-                            </li>
-                        </ul>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 65%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-arrow"></i> SQL &amp; Relational Queries</span>
+                                    <span class="skill__level">Advanced</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 85%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
-                <!-- Tools & Engineering -->
+                <!-- Development Tools -->
                 <div class="skill-card">
                     <div class="skill-card__front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="skill-icon" />
-                        <h1 class="skills__title">Development Tools</h1>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="skill-icon" alt="Git" />
+                        <h3 class="skills__title">Development Tools</h3>
                     </div>
 
                     <div class="skill-card__back">
-                        <ul>
-                            <li>Git / GitHub
-                                <div class="progress">
-                                    <div class="progress-bar" style="width:85%">Advanced</div>
+                        <div class="skills__list">
+                            
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-github-alt"></i> Git / GitHub Actions</span>
+                                    <span class="skill__level">Advanced</span>
                                 </div>
-                            </li>
-
-                            <li>Docker
                                 <div class="progress">
-                                    <div class="progress-bar" style="width:60%">Intermediate</div>
+                                    <div class="progress-bar" style="--target-width: 85%;"></div>
                                 </div>
-                            </li>
+                            </div>
 
-                            <li>Postman
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-box"></i> Docker / Containers</span>
+                                    <span class="skill__level">Intermediate</span>
+                                </div>
                                 <div class="progress">
-                                    <div class="progress-bar" style="width:70%">Intermediate</div>
+                                    <div class="progress-bar" style="--target-width: 65%;"></div>
                                 </div>
-                            </li>
+                            </div>
 
-                            <li>Jenkins
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-map-marker"></i> Leaflet.js / GIS Tech</span>
+                                    <span class="skill__level">Advanced</span>
+                                </div>
                                 <div class="progress">
-                                    <div class="progress-bar" style="width:70%">Intermediate</div>
+                                    <div class="progress-bar" style="--target-width: 85%;"></div>
                                 </div>
-                            </li>
+                            </div>
 
-                        </ul>
+                            <div class="skill__badge">
+                                <div class="skill__badge-header">
+                                    <span class="skill__name"><i class="uil uil-bolt"></i> Vite / Webpack / Postman</span>
+                                    <span class="skill__level">Intermediate</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" style="--target-width: 80%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Activity -->
+        
+        <!-- Activity Section -->
         <section class="activity section" id="activity">
-                <h2 class="section__title">Leadership & Activities</h2>
-                <span class="section__subtitle">Leadership roles, volunteering experiences, and industry exposure
-                </span>
-                <div class="activity__container container swiper">
-                    <div class="swiper-wrapper">
+            <h2 class="section__title">Leadership &amp; Activities</h2>
+            <span class="section__subtitle">Leadership roles, volunteering experiences, and industry exposure</span>
 
-                        <!-- Activity Display -->
-                        <div class="activity__card">
-                            <div class="activity__image-wrapper">
-                                <img src="assets/img/preview.jpg"
-                                class="activity__img">
+            <div class="activity__container container">
 
-                                <span class="activity__type">
-                                     ACTIVITIES
-                                </span>
+                <!-- Activity Card -->
+                <div class="activity__card">
+                    <div class="activity__image-wrapper">
+                        <img src="assets/img/preview.jpg" class="activity__img" alt="Activities Preview">
+                        <span class="activity__type">ACTIVITIES</span>
+                    </div>
 
-                            </div>
+                    <div class="activity__info">
+                        <span class="activity__date">
+                            <i class="uil uil-calendar-alt"></i> 2021-Present
+                        </span>
 
-                            <div class="activity__info">
-                                <span class="activity__date">
-                                    <i class="uil uil-calendar-alt"></i>
-                                    2021-Present
-                                </span>
-                                <h3>
-                                    Leadership, Volunteering & Professional Development
-                                </h3>
+                        <h3>Leadership, Volunteering &amp; Professional Development</h3>
 
-                                <p>
-                                    A showcase of my leadership roles, volunteer work, technology events,
-                                    bootcamps, and professional development activities that have strengthened
-                                    my leadership, teamwork, and communication skills.
-                                </p>
+                        <p>
+                            A showcase of my leadership roles, volunteer work, technology events,
+                            bootcamps, and professional development activities that have strengthened
+                            my leadership, teamwork, and communication skills.
+                        </p>
 
-                                <div class="activity__tags">
-                                    <span>#Leadership</span>
-                                    <span>#Volunteerism</span>
-                                    <span>#ProfessionalDevelopment</span>
-                                    <span>#Technology</span>
-                                    <span>#CommunityEngagement</span>
-                                </div>
-
-                                <a href="src/activity.html"
-                                class="button button--flex">
-                                    View My Activities
-                                    <i class="uil uil-arrow-right"></i>
-                                </a>
-                            </div>
+                        <div class="activity__tags">
+                            <span>#Leadership</span>
+                            <span>#Volunteerism</span>
+                            <span>#ProfessionalDevelopment</span>
+                            <span>#Technology</span>
+                            <span>#CommunityEngagement</span>
                         </div>
 
+                        <a href="src/activity.html" class="button button--flex activity__button">
+                            View My Activities
+                            <i class="uil uil-arrow-right button__icon"></i>
+                        </a>
                     </div>
                 </div>
+
+            </div>
         </section>
 
         <!-- Project -->
