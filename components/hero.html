@@ -1,0 +1,151 @@
+<!-- Home / Hero Section -->
+<section class="home section" id="home">
+    <!-- Interactive Sticky Social Dock (Left Screen Edge) -->
+    <div class="home__social sticky-social-dock">
+        <a href="https://www.linkedin.com/in/mhdhamka/" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="LinkedIn">
+            <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
+            <span class="dock-tooltip">LinkedIn</span>
+        </a>
+        
+        <a href="https://github.com/mhdhamka" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="GitHub">
+            <i class="uil uil-github-alt" aria-hidden="true"></i>
+            <span class="dock-tooltip">GitHub</span>
+        </a>
+        
+        <!-- Interactive Copy Email Wrapper -->
+        <div class="email-copy-wrapper home__social-icon" id="copyEmailBtn" aria-label="Copy Email" role="button" tabindex="0">
+            <i class="uil uil-envelope email-icon" aria-hidden="true"></i>
+            <span class="dock-tooltip" id="copyTooltip">Copy Email</span>
+        </div>
+    </div>
+
+    <div class="home__container container grid">
+        <div class="home__content grid">
+            
+            <!-- Hero Data / Text Content -->
+            <div class="home__data">
+                <!-- Status Badge, Location & System Health Meta -->
+                <div class="home__meta-wrapper">
+                    <div class="home__status-badge">
+                        <span class="status-ping" aria-hidden="true"></span>
+                        <span class="status-text"><code>status: open_to_work = true</code></span>
+                    </div>
+                    
+                    <div class="home__health-badge">
+                        <span class="health-dot" aria-hidden="true"></span>
+                        <span class="health-text">API: <code>99.9% uptime</code></span>
+                    </div>
+
+                    <span class="home__location">
+                        <i class="uil uil-map-marker" aria-hidden="true"></i> Kuching, Sarawak
+                    </span>
+                </div>
+
+                <h1 class="home__title">
+                    Hi, I'm <span id="name" class="highlight-text">mhdhamka</span> 
+                </h1>
+                
+                <!-- Dynamic Typing Target -->
+                <h3 class="home__subtitle">
+                    I'm a <span class="typed-text"></span><span class="cursor" aria-hidden="true">&nbsp;</span>
+                </h3>
+                
+                <p class="home__description">
+                    Software Engineering graduate specializing in full-stack web development, backend API design, and data-driven applications powered by Python, FastAPI, and machine learning.
+                </p>
+
+                <!-- Embedded Mini IDE Code Snippet -->
+                <div class="hero-code-snippet">
+                    <div class="snippet-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="snippet-title">core_engine.py</span>
+                    </div>
+                    <pre><code><span class="keyword">class</span> <span class="title">SoftwareEngineer</span>:
+                    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="params">self</span>):
+                        <span class="params">self</span>.stack = [<span class="string">"FastAPI"</span>, <span class="string">"React"</span>, <span class="string">"Python"</span>]
+                        <span class="params">self</span>.status = <span class="string">"Ready to deploy"</span></code></pre>
+                </div>
+
+                <!-- Core Tech Stack Pills -->
+                <div class="home__tech-stack">
+                    <span class="tech-pill">React / Next.js</span>
+                    <span class="tech-pill">Python / FastAPI</span>
+                    <span class="tech-pill">Pandas / NumPy / ML</span>
+                </div>
+
+                <!-- Engineering Metrics Ticker -->
+                <div class="home__metrics">
+                    <div class="metric-item">
+                        <span class="metric-value" id="repoCount">--</span>
+                        <span class="metric-label">Repositories Built</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-value" id="stackCount">3+</span>
+                        <span class="metric-label">Core Tech Stacks</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-value">100%</span>
+                        <span class="metric-label">Commit Frequency</span>
+                    </div>
+                </div>
+
+                <!-- Dual CTA Action Buttons + Terminal Copy Command -->
+                <div class="home__buttons">
+                    <a href="#contact" class="button button--flex">
+                        Contact Me <i class="uil uil-message button__icon" aria-hidden="true"></i>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="assets/resume/mhdhamka_resume.pdf" class="button button--flex button--ghost">
+                        Resume <i class="uil uil-download-alt button__icon" aria-hidden="true"></i>
+                    </a>
+                    <button class="button button--flex button--ghost terminal-copy-btn" id="copyNpxBtn" aria-label="Copy terminal command">
+                        <span>npx mhdhamka-cv</span> <i class="uil uil-copy button__icon" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Scroll Indicator (Correctly nested inside home__data) -->
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse" aria-hidden="true"></i>
+                        <span class="home__scroll-name">Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Avatar / Graphic -->
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <clipPath id="circleMask">
+                            <circle cx="100" cy="100" r="90" />
+                        </clipPath>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="6" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                    </defs>
+
+                    <!-- Interactive Animated Outer Ring -->
+                    <circle class="home__blob-ring" cx="100" cy="100" r="92" />
+
+                    <!-- Clipped Image -->
+                    <image
+                        class="home__blob-img"
+                        x="0"
+                        y="0"
+                        width="200"
+                        height="200"
+                        href="assets/img/photo.jpg"
+                        clip-path="url(#circleMask)"
+                        preserveAspectRatio="xMidYMid slice"
+                    />
+                </svg>
+            </div>
+
+        </div>
+    </div>
+</section>
