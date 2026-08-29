@@ -11,7 +11,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch(fullPath);
             if (response.ok) {
-                const html = await response.text();
+                let html = await response.text();
+                
+                // If we are in a subfolder, fix standard relative link attributes 
+                // (href and src) within the loaded component HTML string
+                if (isSubfolder) {
+                    // Create a temporary container to parse and adjust links
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    
+                    tempDiv.querySelectorAll('a, [src]').forEach(element => {
+                        const attr = element.hasAttribute('href') ? 'href' : 'src';
+                        let val = element.getAttribute(attr);
+                        
+                        // If it's a relative link/path and doesn't already start with http, ../, or #
+                        if (val && !val.startsWith('http') && !val.startsWith('../') && !val.startsWith('#') && !val.startsWith('mailto:')) {
+                            element.setAttribute(attr, '../' + val);
+                        }
+                    });
+                    html = tempDiv.innerHTML;
+                }
+
                 el.outerHTML = html;
             } else {
                 console.error(`Error loading component: ${fullPath}`);

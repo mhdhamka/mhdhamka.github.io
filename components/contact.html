@@ -8,78 +8,85 @@
         Let's connect and build something together
     </span>
 
-    <div class="contact__container container">
-        <div class="contact__grid">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/mhdhamka" target="_blank" rel="noopener noreferrer" class="contact__card">
-                <div class="contact__icon">
-                    <i class="uil uil-linkedin"></i>
-                </div>
+    <div class="contact__container container grid">
+        <!-- Left Column: Quick Connect Cards -->
+        <div class="contact__info">
+            <div class="contact__grid">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/mhdhamka" target="_blank" rel="noopener noreferrer" class="contact__card">
+                    <div class="contact__icon">
+                        <i class="uil uil-linkedin"></i>
+                    </div>
 
-                <div class="contact__content">
-                    <span class="contact__type">
-                        Professional Network
-                    </span>
+                    <div class="contact__content">
+                        <span class="contact__type">
+                            Professional Network
+                        </span>
+                        <h3>LinkedIn</h3>
+                        <p>Mohd Hamka</p>
+                    </div>
 
-                    <h3>
-                        LinkedIn
-                    </h3>
+                    <i class="uil uil-arrow-up-right contact__arrow"></i>
+                </a>
 
-                    <p>
-                        Mohd Hamka
-                    </p>
-                </div>
+                <!-- GitHub -->
+                <a href="https://github.com/mhdhamka" target="_blank" rel="noopener noreferrer" class="contact__card">
+                    <div class="contact__icon">
+                        <i class="uil uil-github"></i>
+                    </div>
 
-                <i class="uil uil-arrow-up-right contact__arrow"></i>
-            </a>
+                    <div class="contact__content">
+                        <span class="contact__type">
+                            Developer Portfolio
+                        </span>
+                        <h3>GitHub</h3>
+                        <p>mhdhamka</p>
+                    </div>
+                    <i class="uil uil-arrow-up-right contact__arrow"></i>
+                </a>
 
-            <!-- GitHub -->
-            <a href="https://github.com/mhdhamka" target="_blank" rel="noopener noreferrer" class="contact__card">
-                <div class="contact__icon">
-                    <i class="uil uil-github"></i>
-                </div>
+                <!-- Email with Interactive Copy-to-Clipboard -->
+                <a class="contact__card email-copy-wrapper" onclick="copyEmailToClipboard()" role="button" tabindex="0" aria-label="Copy email address">
+                    <div class="contact__icon">
+                        <i class="uil uil-envelope"></i>
+                    </div>
 
-                <div class="contact__content">
-                    <span class="contact__type">
-                        Developer Portfolio
-                    </span>
+                    <div class="contact__content">
+                        <span class="contact__type">
+                            Direct Contact
+                        </span>
+                        <h3>Gmail</h3>
+                        <p id="email-text">m.hamka017@gmail.com</p>
+                    </div>
 
-                    <h3>
-                        GitHub
-                    </h3>
-
-                    <p>
-                        mhdhamka
-                    </p>
-                </div>
-                <i class="uil uil-arrow-up-right contact__arrow"></i>
-            </a>
-
-            <!-- Email with Interactive Copy-to-Clipboard (Symmetrical Titles) -->
-            <div class="contact__card email-copy-wrapper" onclick="copyEmailToClipboard()" role="button" tabindex="0" aria-label="Copy email address">
-                <div class="contact__icon">
-                    <i class="uil uil-envelope"></i>
-                </div>
-
-                <div class="contact__content">
-                    <span class="contact__type">
-                        Direct Contact
-                    </span>
-
-                    <h3>
-                        Gmail
-                    </h3>
-
-                    <p id="email-text">
-                        m.hamka017@gmail.com
-                    </p>
-                </div>
-
-                <i class="uil uil-copy contact__arrow"></i>
-
-                <!-- Modern Stardust Tooltip -->
-                <span class="copy-tooltip" id="email-tooltip">Copied to clipboard!</span>
+                    <div class="contact__arrow-wrapper">
+                        <i class="uil uil-copy contact__arrow"></i>
+                        <span class="copy-tooltip" id="email-tooltip">Copied!</span>
+                    </div>
+                </a>
             </div>
         </div>
+
+        <!-- Right Column: Modern Interactive Contact Form -->
+        <form action="#" class="contact__form" id="contact-form">
+            <div class="contact__form-div">
+                <label class="contact__form-tag">Name</label>
+                <input type="text" name="name" placeholder="Enter your name" class="contact__form-input" required autocomplete="name">
+            </div>
+
+            <div class="contact__form-div">
+                <label class="contact__form-tag">Email</label>
+                <input type="email" name="email" placeholder="Enter your email" class="contact__form-input" required autocomplete="email">
+            </div>
+
+            <div class="contact__form-div contact__form-area">
+                <label class="contact__form-tag">Message</label>
+                <textarea name="message" cols="30" rows="7" placeholder="Write your message here..." class="contact__form-input" required></textarea>
+            </div>
+
+            <button type="submit" class="button button--flex">
+                Send Message <i class="uil uil-message button__icon" aria-hidden="true"></i>
+            </button>
+        </form>
     </div>
 </section>

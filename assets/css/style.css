@@ -1,40 +1,45 @@
 /*==================== GOOGLE FONTS ====================*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
 /*==================== VARIABLES CSS (GALAXY THEME) ====================*/
 :root {
-  --header-height: 3rem;
+  --header-height: 4rem;
 
   /*========== Galaxy Colors & HSL Palette ==========*/
-  --hue-color: 265; /* Deep Nebula Purple / Blue Hue */
+  --hue-color: 265; 
 
-  --first-color: #9333ea;
-  --first-color-second: #a855f7;
-  --first-color-alt: #7e22ce;
-  --first-color-lighter: #e9d5ff;
+  --first-color: #a855f7;
+  --first-color-second: #c084fc;
+  --first-color-alt: #9333ea;
+  --first-color-lighter: rgba(168, 85, 247, 0.15);
   
-  --title-color: #f3e8ff;
-  --text-color: #cbd5e1;
-  --text-color-light: #94a3b8;
-  --input-color: rgba(30, 27, 75, 0.6);
-  --body-color: #0f172a;
-  --container-color: #1e1b4b;
-  --scroll-bar-color: rgba(139, 92, 246, 0.2);
+  --title-color: #f8fafc;
+  --text-color: #94a3b8;
+  --text-color-light: #64748b;
+  --input-color: rgba(30, 27, 75, 0.4);
+  --body-color: #0b0f19;
+  --container-color: #131b2e;
+  --card-border: rgba(168, 85, 247, 0.15);
+  --card-border-hover: rgba(168, 85, 247, 0.4);
+  --scroll-bar-color: rgba(168, 85, 247, 0.3);
+  --scroll-thumb-color: rgba(168, 85, 247, 0.6);
 
   /*========== Font and typography ==========*/
-  --body-font: 'Poppins', sans-serif;
+  --body-font: 'Plus Jakarta Sans', sans-serif;
 
-  --big-font-size: 2rem;
-  --h1-font-size: 1.5rem;
-  --h2-font-size: 1.25rem;
+  --big-font-size: 2.5rem;
+  --h1-font-size: 1.75rem;
+  --h2-font-size: 1.35rem;
   --h3-font-size: 1.125rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.95rem;
+  --small-font-size: 0.85rem;
+  --smaller-font-size: 0.75rem;
 
   --font-medium: 500;
   --font-semi-bold: 600;
+  --font-bold: 700;
 
+  /*========== Margins ==========*/
   --mb-0-25: .25rem;
   --mb-0-5: .5rem;
   --mb-0-75: .75rem;
@@ -44,20 +49,24 @@
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
 
+  /*========== Z-index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
   --z-modal: 1000;
+  
+  /*========== Transition ==========*/
+  --transition-speed: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 968px) {
   :root {
-    --big-font-size: 3rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.5rem;
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
     --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    --small-font-size: .9rem;
+    --smaller-font-size: .8rem;
   }
 }
 
@@ -65,33 +74,34 @@
 body.dark-theme,
 body.light-theme,
 body {
-  --first-color: #9333ea;
-  --first-color-second: #a855f7;
-  --title-color: #f3e8ff;
-  --text-color: #cbd5e1;
-  --input-color: rgba(30, 27, 75, 0.7);
-  --body-color: #0f172a;
-  --container-color: #1e1b4b;
+  --first-color: #a855f7;
+  --first-color-second: #c084fc;
+  --title-color: #f8fafc;
+  --text-color: #94a3b8;
+  --input-color: rgba(19, 27, 46, 0.6);
+  --body-color: #0b0f19;
+  --container-color: #131b2e;
 }
 
-/*========== Button Dark/Light ==========*/
+/*========== Button Dark/Light & Navigation Action Controls ==========*/
 .nav__btns {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .change-theme {
   font-size: 1.25rem;
-  color: #c084fc;
-  margin-right: var(--mb-1);
+  color: var(--first-color-second);
   cursor: pointer;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
+  transition: var(--transition-speed);
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.3));
 }
 
 .change-theme:hover {
   color: #ffffff;
-  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.7));
 }
 
 /*==================== BASE ====================*/
@@ -105,20 +115,38 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--body-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--first-color);
+}
+
 body {
-  margin: 0 0 var(--header-height) 0;
+  margin: 0 0 calc(var(--header-height) + 1rem) 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
-  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(147, 51, 234, 0.08) 0%, transparent 40%),
+    url('https://www.transparenttextures.com/patterns/stardust.png');
   background-attachment: fixed;
   color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
-  text-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+  letter-spacing: -0.02em;
 }
 
 ul {
@@ -127,22 +155,27 @@ ul {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 .profile__logo {
-  width: 1.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: cover;
   border-radius: 50%;
-  border: 1px solid rgba(168, 85, 247, 0.4);
+  border: 2px solid var(--first-color);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
 #name {
-  color: #c084fc;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+  color: var(--first-color-second);
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
 }
 
 button {
@@ -151,39 +184,46 @@ button {
   font-size: var(--normal-font-size);
   width: fit-content;
   cursor: pointer;
+  background: transparent;
 }
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 4rem;
+  padding: 3rem 0 5rem;
 }
 
 .section__title {
   font-size: var(--h1-font-size);
   color: var(--title-color);
+  text-align: center;
+  margin-bottom: var(--mb-0-25);
 }
 
 .section__subtitle {
   display: block;
   font-size: var(--small-font-size);
-  color: #94a3b8;
+  color: var(--text-color);
+  text-align: center;
   margin-bottom: var(--mb-3);
+  font-weight: var(--font-medium);
 }
 
-.section__title,
-.section__subtitle {
-  text-align: center;
+.email-icon {
+  transition: var(--transition-speed);
 }
 
 .email-icon:hover {
   cursor: pointer;
+  color: var(--first-color-second);
 }
 
 /*==================== LAYOUT ====================*/
 .container {
-  max-width: 768px;
-  margin-left: var(--mb-1-5);
-  margin-right: var(--mb-1-5);
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .grid {
@@ -191,44 +231,108 @@ button {
   gap: 1.5rem;
 }
 
+/* Modern Glassmorphic Mobile / Fixed Bottom Navbar */
 .header {
   width: 100%;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: rgba(15, 23, 42, 0.85);
-  background-image: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.9)), url('https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg'); 
+  background-color: rgba(11, 15, 25, 0.75);
+  background-image: 
+    linear-gradient(to top, rgba(11, 15, 25, 0.95), rgba(19, 27, 46, 0.85)), 
+    url('https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg'); 
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
-  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.8), 0 0 15px rgba(139, 92, 246, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--card-border);
 }
 
+@media screen and (min-width: 768px) {
+  .header {
+    top: 0;
+    bottom: initial;
+    border-top: none;
+    border-bottom: 1px solid var(--card-border);
+  }
+}
 
-
-/*==================== NAV ====================*/
+/*==================== NAV HEADER ====================*/
 .nav {
-  max-width: 1200px;
+  max-width: 1140px;
   height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   position: relative;
 }
 
-/* POSITION LOGO LEFT */
+/* POSITION LOGO LEFT & APPLY MODERN GLASS STYLE */
 .nav__logo {
   flex: 1;
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #e9d5ff !important;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.nav__logo:hover {
+  transform: translateY(-1px);
+}
+
+/* Glassmorphism Icon Box for Logo */
+.nav__logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav__logo:hover .nav__logo-icon {
+  border-color: rgba(129, 140, 248, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+              0 0 15px rgba(99, 102, 241, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav__logo-icon i {
+  color: #c084fc;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.nav__logo:hover .nav__logo-icon i {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+/* Logo Text Styling */
+.nav__logo-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.logo-dot {
+  color: #a855f7;
 }
 
 /* CENTER THE NAV MENU */
@@ -241,7 +345,8 @@ button {
 /* Make nav list horizontal and centered */
 .nav__list {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
 /* THEME BUTTON ON RIGHT */
@@ -250,26 +355,27 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 /* THEME BUTTON STYLE TO MATCH NAV LOGO */
 .nav__btns .change-theme {
-  font-size: 1.5rem;
-  color: #e9d5ff !important;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+  font-size: 1.35rem;
+  color: var(--title-color) !important;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
   cursor: pointer;
-  transition: color 0.3s, text-shadow 0.3s;
+  transition: var(--transition-speed);
 }
 
 .nav__btns .change-theme:hover {
   color: #ffffff !important;
-  text-shadow: 0 0 15px rgba(168, 85, 247, 0.9);
+  transform: scale(1.1);
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.9);
 }
 
 body.light-theme .nav__btns .change-theme {
-  color: #e9d5ff !important;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+  color: var(--title-color) !important;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
 /* NAV LINK STYLES */
@@ -278,52 +384,90 @@ body.light-theme .nav__btns .change-theme {
   flex-direction: column;
   align-items: center;
   font-size: var(--small-font-size);
-  color: #cbd5e1 !important;
+  color: var(--text-color) !important;
   font-weight: var(--font-medium);
-  transition: all 0.3s ease;
+  transition: var(--transition-speed);
+  position: relative;
+  padding: 0.25rem 0;
 }
 
 .nav__link:hover,
 .nav__link.active-link {
-  color: #e9d5ff !important;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  color: var(--title-color) !important;
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+}
+
+/* Active Indicator Glow Pill or Line */
+.nav__link.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  width: 16px;
+  height: 2px;
+  background-color: var(--first-color-second);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--first-color);
 }
 
 /* NAV ICON */
 .nav__icon {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.15rem;
 }
 
 /* MOBILE TOGGLE & CLOSE BUTTONS (Default hidden on desktop) */
 .nav__toggle, 
 .nav__close {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   cursor: pointer;
-  color: #e9d5ff;
+  color: var(--title-color);
   display: none;
+  transition: var(--transition-speed);
+}
+
+.nav__toggle:hover,
+.nav__close:hover {
+  color: var(--first-color-second);
 }
 
 /* LIGHT/DARK OVERRIDES UNIFIED TO GALAXY */
 body.light-theme .nav__link {
-  color: #cbd5e1 !important;
+  color: var(--text-color) !important;
 }
 
 body.light-theme .nav__link:hover,
 body.light-theme .nav__link.active-link {
-  color: #e9d5ff !important;
+  color: var(--title-color) !important;
 }
 
 
 /* ==================== HOME / HERO ==================== */
 .home__container {
     row-gap: 2rem;
-    padding-top: 3.5rem;
+    padding-top: 2rem;
+    max-width: 1200px; 
 }
 
 .home__content {
-    grid-template-columns: 1.2fr 0.8fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
     align-items: center;
-    gap: 3rem;
+}
+
+@media screen and (min-width: 968px) {
+    .home__content {
+        grid-template-columns: 1fr 1.35fr; /* Allocated more width ratio to the right code window column */
+        gap: 3.5rem;
+        align-items: center;
+    }
+    
+    .home__vscode-window {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        justify-self: center;
+        align-self: center;
+    }
 }
 
 /* Status Ping Badge with Galaxy Glow */
@@ -433,69 +577,500 @@ body.light-theme .nav__link.active-link {
     color: var(--first-color, #c084fc);
 }
 
-/* Hero Code Snippet Box (Advanced IDE Styling) */
-.hero-code-snippet {
+/* ==================== VS CODE EDITOR WINDOW WRAPPER ==================== */
+.home__vscode-window {
     background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.85));
     border: 1px solid rgba(168, 85, 247, 0.25);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    font-family: 'Fira Code', monospace, sans-serif;
-    font-size: 0.78rem;
-    margin: 1.25rem 0;
+    border-radius: 14px;
     width: 100%;
-    max-width: 540px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    max-width: 750px; /* Expanded max-width so the editor body and terminal fit wide layout constraints properly */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 1.25rem 0;
 }
 
-.hero-code-snippet:hover {
+.home__vscode-window:hover {
     border-color: rgba(192, 132, 252, 0.5);
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 50px rgba(139, 92, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-3px);
 }
 
-.snippet-header {
+/* VS Code Topbar / Titlebar */
+.vscode__topbar {
+    display: flex;
+    align-items: center;
+    background: rgba(11, 15, 25, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.55rem 1rem;
+    gap: 1.5rem;
+}
+
+.vscode__window-dots {
     display: flex;
     gap: 7px;
     align-items: center;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 0.5rem;
 }
 
-.snippet-header .dot {
+.vscode__window-dots .dot {
     width: 9px;
     height: 9px;
     border-radius: 50%;
     transition: opacity 0.2s;
 }
 
-.snippet-header .dot:hover {
-    opacity: 0.8;
+.vscode__window-dots .red { background: #ef4444; box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+.vscode__window-dots .yellow { background: #f59e0b; box-shadow: 0 0 6px rgba(245, 158, 11, 0.5); }
+.vscode__window-dots .green { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+
+.vscode__workspace-title {
+    font-size: 0.75rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+    color: #94a3b8;
+    margin: 0 auto;
+    font-weight: 500;
 }
 
-.snippet-header .red { background: #ef4444; box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
-.snippet-header .yellow { background: #f59e0b; box-shadow: 0 0 6px rgba(245, 158, 11, 0.5); }
-.snippet-header .green { background: #10b981; box-shadow: 0 0 6px rgba(16, 185, 129, 0.5); }
+/* Terminal toggle pill in the titlebar */
+.vscode__terminal-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #cbd5e1;
+    font-size: 0.68rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+    padding: 0.25rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-.snippet-title {
-    margin-left: auto;
+.vscode__terminal-toggle:hover {
+    color: #f3e8ff;
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+.vscode__terminal-toggle svg {
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.vscode__terminal-toggle[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+}
+
+/* Titlebar tightens on narrow screens: icon-only toggle, smaller title */
+@media screen and (max-width: 576px) {
+    .vscode__topbar {
+        gap: 0.6rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .vscode__workspace-title {
+        font-size: 0.65rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    .vscode__terminal-toggle span {
+        display: none;
+    }
+
+    .vscode__terminal-toggle {
+        padding: 0.3rem 0.45rem;
+    }
+}
+
+/* VS Code Inner Workspace Grid (Activity Bar + Sidebar + Main Editor) */
+.vscode__workspace {
+    display: grid;
+    grid-template-columns: 50px 200px 1fr; /* Custom explicit grid: Activity Bar, File Explorer, Editor Panel */
+    background: #0b0f19;
+    min-height: 420px;
+}
+
+@media screen and (max-width: 576px) {
+    .vscode__workspace {
+        grid-template-columns: 40px 130px 1fr;
+    }
+}
+
+/* 1. Activity Bar (Far Left Icons & Integrated Profile Blob) */
+.vscode__activity-bar {
+    background: rgba(8, 12, 20, 0.95);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    justify-content: space-between;
+}
+
+.activity-bar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.activity-bar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.vscode__activity-bar .activity-icon {
+    font-size: 1.15rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.vscode__activity-bar .activity-icon:hover,
+.vscode__activity-bar .activity-icon.active {
+    color: #f3e8ff;
+}
+
+/* 2. File Explorer Sidebar */
+.vscode__sidebar {
+    background: rgba(13, 18, 30, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 0.75rem 0.6rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+}
+
+.sidebar__header {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
     color: #94a3b8;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-left: 0.35rem;
+}
+
+.sidebar__section-title {
+    font-size: 0.68rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.sidebar__file-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    padding: 0.3rem 0.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.file-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: #e2e8f0;
+}
+
+.file-item.active {
+    background: rgba(168, 85, 247, 0.15);
+    color: #f3e8ff;
+}
+
+.file-item i {
+    font-size: 0.85rem;
+}
+
+.text-python { color: #38bdf8; }
+.text-image { color: #f472b6; }
+.text-html { color: #f97316; }
+.text-css { color: #a855f7; }
+.text-react { color: #61dafb; }
+.text-json { color: #facc15; }
+.text-muted { color: #64748b; }
+
+/* Folder rows in the explorer tree */
+.folder-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #cbd5e1;
+    padding: 0.3rem 0.4rem 0.3rem 0;
+    margin-top: 0.35rem;
+}
+
+.folder-item:first-child { margin-top: 0; }
+.folder-item i { font-size: 0.8rem; color: #94a3b8; }
+
+.file-item.indent { padding-left: 1.1rem; }
+
+/* Active file badge on Source Control icon */
+.activity-icon {
+    position: relative;
+}
+
+.activity-badge {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    background: #a855f7;
+    color: #fff;
+    font-size: 0.55rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.6);
+}
+
+/* 3. Main Editor Pane */
+.vscode__editor-pane {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.95);
+    overflow: hidden;
+}
+
+.vscode__tabs {
+    display: flex;
+    background: rgba(11, 15, 25, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    overflow-x: auto;
+}
+
+.vscode__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.72rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+    color: #94a3b8;
+    background: transparent;
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vscode__tab i {
+    font-size: 0.85rem;
+}
+
+.vscode__tab:hover {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.vscode__tab.active {
+    color: #f3e8ff;
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 2px solid #a855f7;
+}
+
+/* VS Code Editor Body */
+.vscode__body {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* Code panel visibility (JS toggles .active) */
+.code-panel {
+    display: none;
+    width: 100%;
+    animation: codeFadeIn 0.25s ease;
+}
+
+.code-panel.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes codeFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Code Snippet Box */
+.hero-code-snippet {
+    background: rgba(11, 15, 25, 0.7);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+    font-size: 0.76rem;
+    width: 100%;
 }
 
 .hero-code-snippet pre {
     color: #e2e8f0;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+    overflow-x: auto;
 }
 
 .hero-code-snippet .keyword { color: #c084fc; font-weight: 600; }
 .hero-code-snippet .title { color: #38bdf8; }
 .hero-code-snippet .string { color: #34d399; }
 .hero-code-snippet .function { color: #f472b6; }
+.hero-code-snippet .params { color: #facc15; }
+.hero-code-snippet .decorator { color: #fbbf24; }
+.hero-code-snippet .comment { color: #64748b; font-style: italic; }
+.hero-code-snippet .number { color: #fb923c; }
+.hero-code-snippet .tag { color: #f87171; }
+
+/* Binary file preview (profile.png tab) */
+.binary-preview {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #94a3b8;
+    padding: 2.5rem 1rem;
+    gap: 0.75rem;
+}
+
+.binary-preview__icon {
+    font-size: 2.5rem;
+    opacity: 0.6;
+}
+
+.binary-preview p {
+    font-size: 0.78rem;
+    max-width: 320px;
+}
+
+.binary-preview__btn {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    color: #e9d5ff;
+    font-family: 'Fira Code', monospace, sans-serif;
+    font-size: 0.72rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.binary-preview__btn:hover {
+    background: rgba(168, 85, 247, 0.22);
+    border-color: rgba(168, 85, 247, 0.55);
+}
+
+/* ===== Integrated Terminal Panel ===== */
+.vscode__terminal {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(9, 12, 20, 0.95);
+    flex-shrink: 0;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: height 0.25s ease, opacity 0.2s ease;
+}
+
+.vscode__terminal.collapsed {
+    height: 0;
+    opacity: 0;
+    border-top-color: transparent;
+}
+
+.vscode__terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vscode__terminal-tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.vscode__terminal-tab {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: #64748b;
+    font-family: 'Fira Code', monospace, sans-serif;
+}
+
+.vscode__terminal-tab.active {
+    color: #e2e8f0;
+    border-bottom: 2px solid #a855f7;
+    padding-bottom: 0.4rem;
+    margin-bottom: -0.4rem;
+}
+
+.vscode__terminal-shell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-family: 'Fira Code', monospace, sans-serif;
+}
+
+.vscode__terminal-body {
+    flex: 1;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Fira Code', monospace, sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.vscode__terminal-body .line-prompt { color: #34d399; }
+.vscode__terminal-body .line-info { color: #38bdf8; }
+.vscode__terminal-body .line-ok { color: #4ade80; }
+.vscode__terminal-body .line-dim { color: #64748b; }
+
+.terminal-caret {
+    display: inline-block;
+    width: 6px;
+    height: 12px;
+    background: #a855f7;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: caretBlink 1s step-end infinite;
+}
+
+@keyframes caretBlink {
+    50% { opacity: 0; }
+}
 
 /* Tech Stack Pills */
 .home__tech-stack {
@@ -586,12 +1161,27 @@ body.light-theme .nav__link.active-link {
     filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.8));
 }
 
+/* Image Container alignment */
+.home__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .home__blob {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
     overflow: visible;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media screen and (min-width: 1200px) {
+    .home__blob {
+        width: 230px;
+        height: 230px;
+    }
 }
 
 /* Outer Border Ring styling - Galaxy Theme */
@@ -633,7 +1223,8 @@ body.light-theme .nav__link.active-link {
 }
 
 .home__data {
-    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
 }
 
 .home__title {
@@ -670,6 +1261,8 @@ body.light-theme .nav__link.active-link {
 .home__scroll-button {
     color: #c084fc;
     transition: .3s;
+    display: inline-flex;
+    align-items: center;
 }
 
 .home__scroll-button:hover {
@@ -691,7 +1284,7 @@ body.light-theme .nav__link.active-link {
 .home__scroll-name {
     font-size: var(--small-font-size);
     color: #cbd5e1;
-    font-weight: var(--first-medium);
+    font-weight: var(--font-medium);
     margin-right: var(--mb-0-25);
 }
 
@@ -699,8 +1292,7 @@ body.light-theme .nav__link.active-link {
     font-size: 1.25rem;
 }
 
-
-/* ==================== BUTTONS (Galaxy Animated Gradient) ==================== */
+/* ==================== BUTTONS (Sleek Modern Tech) ==================== */
 .button, 
 .button--flex {
     position: relative;
@@ -708,80 +1300,64 @@ body.light-theme .nav__link.active-link {
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6, #ec4899);
-    background-size: 300% 300%;
-    animation: galaxyMove 6s ease infinite;
-    color: #ffffff;
-    padding: 0.85rem 2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f8fafc;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem; /* Cleaner rounded corners instead of pill */
+    font-weight: 500;
+    font-size: 0.925rem;
+    letter-spacing: 0.2px;
     text-decoration: none;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     overflow: hidden;
     z-index: 1;
 }
 
-/* Shimmer Light Sweep Effect */
-.button::after {
+/* Subtle clean hover fill effect */
+.button::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
-        transparent
-    );
-    transition: 0.5s;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
     z-index: -1;
 }
 
-.button:hover::after {
-    left: 100%;
+.button:hover::before {
+    opacity: 1;
 }
 
 .button:hover, 
 .button--flex:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 6px 30px rgba(168, 85, 247, 0.7), 
-                0 0 40px rgba(59, 130, 246, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 .button:active {
-    transform: translateY(-1px) scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .button__icon {
-    font-size: 1.25rem;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
 }
 
 .button:hover .button__icon {
-    transform: translateX(5px) scale(1.1);
+    transform: translateX(4px);
 }
-
-/* Ensure smooth background shifting keyframes */
-@keyframes galaxyMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-
-/* ==================== ABOUT SECTION STYLING ==================== */
+/* ==================== ABOUT  ==================== */
 .about__container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -859,7 +1435,7 @@ body.light-theme .nav__link.active-link {
 .string { color: #f472b6; }
 .self { color: #fbbf24; }
 
-/* Text & Info Cards layout fixes */
+/* Text & Info Cards */
 .about__description {
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
@@ -936,6 +1512,77 @@ body.light-theme .nav__link.active-link {
     display: flex;
     justify-content: flex-start;
 }
+
+/* Sleek Modern Tech Button Style for About Section Buttons */
+.about__buttons .button, 
+.about__buttons .button--flex {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f8fafc;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.925rem;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Subtle clean hover fill effect */
+.about__buttons .button::before,
+.about__buttons .button--flex::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.about__buttons .button:hover::before,
+.about__buttons .button--flex:hover::before {
+    opacity: 1;
+}
+
+.about__buttons .button:hover, 
+.about__buttons .button--flex:hover {
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.about__buttons .button:active,
+.about__buttons .button--flex:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.about__buttons .button__icon {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.about__buttons .button:hover .button__icon {
+    transform: translateX(4px);
+}
+
+
 /*==================== GALAXY SKILLS CONTAINER ====================*/
 .skills__container {
     width: 100%;
@@ -1161,7 +1808,6 @@ body.light-theme .nav__link.active-link {
     }
 }
 
-
 /*==================== GALAXY QUALIFICATION ====================*/
 
 .qualification {
@@ -1196,35 +1842,70 @@ body.light-theme .nav__link.active-link {
     margin-bottom: 3rem;
 }
 
+/* Sleek Modern Tech Button Style for Tabs */
 .qualification__button {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.05rem;
-    font-weight: 600;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
-    color: #cbd5e1;
-    padding: 0.7rem 1.8rem;
-    border-radius: 2rem;
-    background: rgba(30, 27, 75, 0.4);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: all 0.3s ease;
+    color: #94a3b8;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Subtle clean hover fill effect */
+.qualification__button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.qualification__button:hover::before {
+    opacity: 1;
 }
 
 .qualification__button:hover {
-    color: #f3e8ff;
-    border-color: rgba(168, 85, 247, 0.5);
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
     transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #f8fafc;
+}
+
+.qualification__button i {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.qualification__button:hover i {
+    transform: scale(1.1);
+    color: #ffffff;
 }
 
 .qualification__button.qualification__active {
     color: #ffffff;
-    background: linear-gradient(90deg, #6b21a8, #9333ea, #3b82f6, #ec4899);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 20px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .qualification__sections {
@@ -1248,7 +1929,7 @@ body.light-theme .nav__link.active-link {
 
 .qualification__container {
     width: 100% !important;
-    max-width: 1400px !important;
+    max-width: 1200px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 0 1.5rem !important;
@@ -1318,6 +1999,7 @@ body.light-theme .nav__link.active-link {
     opacity: 1;
 }
 
+/* Sleek Modern Tech Icon Box Style */
 .qualification-icon-box {
     width: 65px;
     height: 65px;
@@ -1326,19 +2008,33 @@ body.light-theme .nav__link.active-link {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2;
     flex-shrink: 0 !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.qualification-card:hover .qualification-icon-box {
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .qualification-icon-box i {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    transition: transform 0.25s ease;
+}
+
+.qualification-card:hover .qualification-icon-box i {
+    transform: scale(1.1);
     color: #ffffff;
-    font-size: 1.8rem;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
 }
 
 .qualification-content {
@@ -1552,23 +2248,21 @@ body.light-theme .nav__link.active-link {
     filter: brightness(1.05);
 }
 
-/* 5. Badge Overlay */
+/* 5. Badge Overlay (Kept subtle or updated to match clean style if preferred) */
 .activity__type {
     position: absolute;
     top: 15px;
     right: 15px;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    color: white;
+    background: rgba(30, 27, 75, 0.85);
+    color: #e9d5ff;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    box-shadow: 0 0 15px rgba(147, 51, 234, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.3);
     z-index: 2;
 }
 
@@ -1632,35 +2326,66 @@ body.light-theme .nav__link.active-link {
     box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
 }
 
-/* 8. Galaxy Button Override */
+/* 8. Sleek Modern Tech Button Design Override */
 .activity__button,
 .activity__info .button {
-    background: linear-gradient(90deg, #6b21a8, #9333ea, #3b82f6, #ec4899) !important;
-    background-size: 200% 100% !important;
-    animation: galaxyMove 3s linear infinite;
-    color: white !important;
-    padding: 0.75rem 1.75rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    text-decoration: none;
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    align-self: flex-start;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: #f8fafc !important;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.925rem;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    align-animation: none !important;
+    animation: none !important;
+}
+
+/* Subtle clean hover fill effect */
+.activity__button::before,
+.activity__info .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.activity__button:hover::before,
+.activity__info .button:hover::before {
+    opacity: 1;
 }
 
 .activity__button:hover,
 .activity__info .button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(99, 102, 241, 0.6);
+    transform: translateY(-2px) !important;
+    border-color: rgba(129, 140, 248, 0.4) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
 }
 
-@keyframes galaxyMove {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+.activity__button:active,
+.activity__info .button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* 9. Responsive Breakpoints */
@@ -1673,248 +2398,25 @@ body.light-theme .nav__link.active-link {
         height: 250px;
     }
 }
-
-
-/*==================== GALAXY PROJECTS SECTION ====================*/
-.section__title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #f3e8ff;
-    text-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
-}
-
-.section__subtitle {
-    display: block;
-    text-align: center;
-    font-size: 1.1rem;
-    color: #e9d5ff;
-    margin-bottom: 2rem;
-}
-
-/* Grid Container */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
-    padding: 0 1rem;
-}
-
-/* Individual Project Card (Galaxy Glassmorphism) */
-.project-card,
-.project-box {
-    position: relative;
-    background: linear-gradient(145deg, rgba(30, 27, 75, 0.85), rgba(15, 23, 42, 0.95));
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    background-blend-mode: overlay;
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 1.25rem;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.8), 0 0 20px rgba(139, 92, 246, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    min-height: 540px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.project-card:hover,
-.project-box:hover {
-    transform: translateY(-8px);
-    border-color: rgba(168, 85, 247, 0.5);
-    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), 0 0 50px rgba(99, 102, 241, 0.4);
-}
-
-/* Mouse-following Stardust Spotlight (If JS is attached) */
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: var(--mouse-y, 50%);
-    left: var(--mouse-x, 50%);
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(99, 102, 241, 0.1) 40%, transparent 70%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-
-.project-card:hover::before {
-    opacity: 1;
-}
-
-/* Project Image & Wrapper */
-.project-img-wrapper,
-.project-image-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.project-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: transform 0.5s ease, filter 0.5s ease;
-    filter: brightness(0.9);
-}
-
-.project-card:hover .project-img {
-    transform: scale(1.05);
-    filter: brightness(1.05);
-}
-
-/* Floating Badge / Type Tag */
-.project-type {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 0.45rem 1rem;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    box-shadow: 0 0 15px rgba(147, 51, 234, 0.8);
-    backdrop-filter: blur(5px);
-    z-index: 2;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Card Content & Typography */
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-name,
-.project-content h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #f3e8ff;
-    margin-bottom: 0.8rem;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
-}
-
-.project-description,
-.project-content p {
-    font-size: 0.95rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-}
-
-/* Technology Badges & Hashtags */
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1.3rem;
-}
-
-.project-tags span {
-    background: rgba(30, 27, 75, 0.5);
-    color: #e9d5ff;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    padding: 0.35rem 0.85rem;
-    border-radius: 20px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
-    transition: all 0.3s ease;
-}
-
-.project-tags span:hover {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: rgba(168, 85, 247, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
-}
-
-.project-hashtags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1.5rem;
-}
-
-.project-hashtags span {
-    color: #c084fc;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* Action Buttons & Bottom Container */
-.project-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.project-tech {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    font-size: 0.85rem;
-    color: #94a3b8;
-}
-
-/* Section Bottom Button */
-.project__more,
-.more-projects {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
-
-.more-button {
-    background: linear-gradient(90deg, #6b21a8, #9333ea, #3b82f6, #ec4899);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.more-button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(99, 102, 241, 0.6);
-}
-
-@keyframes galaxyMove {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Responsive Breakpoints */
-@media screen and (max-width: 1100px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-        padding: 0;
-    }
-}
 /* ==========================================
    GALAXY CONTACT ME 
 ========================================== */
 
 .contact__container {
-    row-gap: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
     width: 100%;
+    max-width: 1200px;
+    margin-top: 3rem;
 }
 
-/* Contact Grid */
+/* Contact Grid (Left Column Cards) */
 .contact__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
 /* Galaxy Contact Card */
@@ -1922,13 +2424,11 @@ body.light-theme .nav__link.active-link {
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 290px;
-    padding: 2.5rem 2rem;
-    border-radius: 2rem;
+    text-align: left;
+    min-height: 110px;
+    padding: 1.5rem 2rem;
+    border-radius: 1.5rem;
     text-decoration: none;
     cursor: pointer;
 
@@ -1948,12 +2448,12 @@ body.light-theme .nav__link.active-link {
 .contact__card::before {
     content: "";
     position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -70px;
-    right: -60px;
+    width: 140px;
+    height: 140px;
+    top: -50px;
+    right: -40px;
     background: radial-gradient(circle, rgba(168, 85, 247, 0.55), transparent 70%);
-    filter: blur(30px);
+    filter: blur(25px);
     pointer-events: none;
     transition: opacity 0.3s ease;
     opacity: 0.7;
@@ -1965,8 +2465,8 @@ body.light-theme .nav__link.active-link {
     position: absolute;
     top: var(--mouse-y, 50%);
     left: var(--mouse-x, 50%);
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
     background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(99, 102, 241, 0.12) 45%, transparent 75%);
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -1980,78 +2480,88 @@ body.light-theme .nav__link.active-link {
 }
 
 .contact__card:hover {
-    transform: translateY(-10px) scale(1.01);
+    transform: translateY(-6px) scale(1.01);
     border-color: rgba(168, 85, 247, 0.6);
     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9), 0 0 35px rgba(139, 92, 246, 0.5), 0 0 60px rgba(99, 102, 241, 0.3);
 }
 
 .contact__card:active {
-    transform: translateY(-4px) scale(0.99);
+    transform: translateY(-2px) scale(0.99);
 }
 
-/* Cosmic Icon Sphere */
+/* Sleek Modern Tech Icon Sphere */
 .contact__icon {
-    width: 90px;
-    height: 90px;
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.7), 0 0 50px rgba(99, 102, 241, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    margin-right: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2;
-    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact__card:hover .contact__icon {
-    transform: scale(1.12) rotate(6deg);
-    box-shadow: 0 0 45px rgba(168, 85, 247, 0.9), 0 0 70px rgba(99, 102, 241, 0.6);
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .contact__icon i {
-    font-size: 2.7rem;
+    font-size: 1.5rem;
+    color: #f8fafc;
+    transition: transform 0.25s ease;
+}
+
+.contact__card:hover .contact__icon i {
+    transform: scale(1.1);
     color: #ffffff;
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7));
 }
 
 /* Category Badge */
 .contact__type {
     display: inline-block;
-    padding: 0.35rem 1.1rem;
+    padding: 0.2rem 0.8rem;
     border-radius: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
     background: rgba(168, 85, 247, 0.15);
     color: #e9d5ff;
     border: 1px solid rgba(168, 85, 247, 0.35);
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
-    box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
     z-index: 2;
 }
 
 /* Text Content */
 .contact__content {
     z-index: 2;
+    flex: 1;
 }
 
 .contact__content h3 {
     color: #f3e8ff;
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 0.4rem;
-    text-shadow: 0 0 12px rgba(168, 85, 247, 0.45);
+    margin-bottom: 0.2rem;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.45);
     letter-spacing: 0.3px;
 }
 
 .contact__content p {
     color: #94a3b8;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.2px;
     transition: color 0.3s ease;
@@ -2063,13 +2573,9 @@ body.light-theme .nav__link.active-link {
 
 /* Action Arrow / Indicator */
 .contact__arrow {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
     color: #c084fc;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     opacity: 0.4;
-    transform: translate(0, 0);
     transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 2;
     filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
@@ -2077,35 +2583,215 @@ body.light-theme .nav__link.active-link {
 
 .contact__card:hover .contact__arrow {
     opacity: 1;
-    transform: translate(4px, -4px);
+    transform: translate(3px, 0);
     color: #f3e8ff;
 }
 
-@keyframes galaxyMove {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+/* Arrow Wrapper for Email Card Alignment */
+.contact__arrow-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.contact__card .contact__arrow-wrapper .contact__arrow {
+    position: static;
+    transform: none;
+}
+
+.contact__card:hover .contact__arrow-wrapper .contact__arrow {
+    transform: translateX(3px);
+}
+
+/* Stardust Copy Tooltip */
+.copy-tooltip {
+    position: absolute;
+    bottom: 135%;
+    right: 50%;
+    transform: translateX(50%) translateY(5px);
+    background: rgba(168, 85, 247, 0.9);
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 0.4rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.copy-tooltip.active {
+    opacity: 1;
+    transform: translateX(50%) translateY(0);
+}
+
+/* ==========================================
+   MODERN GALAXY CONTACT FORM (Right Column)
+========================================== */
+
+.contact__form {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    background-blend-mode: overlay;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 15px 45px rgba(15, 23, 42, 0.85), 0 0 25px rgba(139, 92, 246, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact__form-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact__form-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #e9d5ff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.contact__form-input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.contact__form-input::placeholder {
+    color: #64748b;
+}
+
+.contact__form-input:focus {
+    border-color: rgba(168, 85, 247, 0.8);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.contact__form-area {
+    margin-bottom: 0.5rem;
+}
+
+.contact__form-area textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+/* Sleek Modern Tech Button Design for Contact Form Submit Button */
+.contact__form .button,
+.contact__form button[type="submit"],
+.contact__form .button--flex {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f8fafc;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.925rem;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Subtle clean hover fill effect */
+.contact__form .button::before,
+.contact__form button[type="submit"]::before,
+.contact__form .button--flex::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.contact__form .button:hover::before,
+.contact__form button[type="submit"]:hover::before,
+.contact__form .button--flex:hover::before {
+    opacity: 1;
+}
+
+.contact__form .button:hover,
+.contact__form button[type="submit"]:hover,
+.contact__form .button--flex:hover {
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.contact__form .button:active,
+.contact__form button[type="submit"]:active,
+.contact__form .button--flex:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact__form .button__icon,
+.contact__form button[type="submit"] i,
+.contact__form .button--flex i {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.contact__form .button:hover .button__icon,
+.contact__form button[type="submit"]:hover i,
+.contact__form .button--flex:hover i {
+    transform: translateX(4px);
 }
 
 /* Responsive Breakdown */
 @media screen and (max-width: 968px) {
-    .contact__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 }
 
 @media screen and (max-width: 640px) {
-    .contact__grid {
-        grid-template-columns: 1fr;
+    .contact__card {
+        padding: 1.25rem 1.5rem;
     }
     
-    .contact__card {
-        min-height: 260px;
-        padding: 2rem 1.5rem;
+    .contact__form {
+        padding: 1.75rem;
     }
 }
-
-
 /*==================== FOOTER ====================*/
 .footer {
     padding-top: 2rem;
@@ -2128,93 +2814,144 @@ body.light-theme .nav__link.active-link {
                       url('https://www.transparenttextures.com/patterns/stardust.png');
     backdrop-filter: brightness(0.6);
     color: #f3e8ff;
-    padding: 3rem 0 3.5rem;
-    border-top: 2px solid rgba(168, 85, 247, 0.4);
-    box-shadow: 0 -15px 40px rgba(13, 10, 26, 0.95), 0 0 25px rgba(168, 85, 247, 0.25);
+    padding: 3.5rem 0 4rem;
+    border-top: 1px solid rgba(139, 92, 246, 0.25);
+    box-shadow: 0 -15px 40px rgba(13, 10, 26, 0.95), 0 0 25px rgba(139, 92, 246, 0.25);
 }
 
 .footer__title {
     font-size: var(--h2-font-size);
     margin-bottom: var(--mb-0-25);
-    color: #f3e8ff;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+    color: #f8fafc;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
 }
 
 .footer__subtitle {
     font-size: var(--small-font-size);
-    color: #cbd5e1;
+    color: #94a3b8;
+    line-height: 1.5;
 }
 
 .footer__links {
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    row-gap: 1rem;
 }
 
 .footer__link {
     color: #cbd5e1;
-    transition: 0.3s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
 }
 
 .footer__link:hover {
-    color: #e9d5ff;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+    color: #f8fafc;
+    transform: translateX(4px);
     text-decoration: none;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
 }
 
+/* Modern Sleek Glassmorphism Social Icon Containers */
 .footer__social {
-    font-size: 1.25rem;
-    margin-right: var(--mb-1-5);
-    color: #c084fc;
-    transition: 0.3s ease;
-    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 0.75rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #f8fafc;
+    font-size: 1.15rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__social:hover {
+    transform: translateY(-3px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
     color: #ffffff;
-    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.9));
-    transform: translateY(-2px);
 }
 
 .footer__copy {
     font-size: var(--smaller-font-size);
     text-align: center;
-    color: #94a3b8;
-    margin-top: var(--mb-1);
+    color: #64748b;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    letter-spacing: 0.2px;
 }
 
-/* Explicitly define galaxy theme text colors for all key footer elements */
-.footer__title, .footer__subtitle,
-.footer__link, .footer__social {
-    color: #f3e8ff;
-}
 
 /*========== SCROLL UP ==========*/
 .scrollup {
     position: fixed;
     right: 1rem;
     bottom: -20%;
-    background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    opacity: 0.9;
-    padding: 0.4rem 0.6rem;
-    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f8fafc;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.75rem;
     z-index: var(--z-tooltip);
-    transition: 0.4s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Subtle clean hover fill effect */
+.scrollup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.scrollup:hover::before {
+    opacity: 1;
 }
 
 .scrollup:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(99, 102, 241, 0.6);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.scrollup:active {
+    transform: translateY(0);
 }
 
 .scrollup__icon {
-    font-size: 1.5rem;
-    color: #fff;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+    font-size: 1.35rem;
+    color: #f8fafc;
+    transition: transform 0.25s ease;
+}
+
+.scrollup:hover .scrollup__icon {
+    transform: translateY(-2px);
+    color: #ffffff;
 }
 
 /* Show scroll */
@@ -2230,14 +2967,17 @@ body.light-theme .nav__link.active-link {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #6b21a8, #9333ea, #3b82f6);
+    background: rgba(139, 92, 246, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: .5rem;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #9333ea, #3b82f6);
+    background: rgba(168, 85, 247, 0.5);
 }
+
 
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
@@ -2283,7 +3023,7 @@ body.light-theme .nav__link.active-link {
 }
 
 /* For medium devices */
-@media screen and (min-width: 565px) {
+@media screen and (min-width: 565px) and (max-width: 967px) {
     .home__content {
         grid-template-columns: max-content 1fr 1fr;
     }
@@ -2467,7 +3207,6 @@ body.light-theme .nav__link.active-link {
         left: -.5rem;
     }
 }
-
 
 /* =========================
    GALAXY GITHUB SECTION
@@ -2657,7 +3396,7 @@ body.light-theme .nav__link.active-link {
     filter: drop-shadow(0 0 15px #a855f7) drop-shadow(0 0 25px #6366f1);
 }
 
-/* GitHub Button Container & Button */
+/* GitHub Button Container & Sleek Modern Button Design */
 .github__button {
     display: flex;
     justify-content: center;
@@ -2666,31 +3405,74 @@ body.light-theme .nav__link.active-link {
 
 .github__button a,
 .github__button .button {
-    background: linear-gradient(90deg, #6b21a8, #9333ea, #3b82f6, #ec4899);
-    background-size: 200% 100%;
-    animation: galaxyMove 3s linear infinite;
-    color: #ffffff;
-    padding: 0.75rem 2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5), 0 0 30px rgba(99, 102, 241, 0.3);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: #f8fafc;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.925rem;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Subtle clean hover fill effect */
+.github__button a::before,
+.github__button .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: -1;
+}
+
+.github__button a:hover::before,
+.github__button .button:hover::before {
+    opacity: 1;
 }
 
 .github__button a:hover,
 .github__button .button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 40px rgba(99, 102, 241, 0.6);
+    transform: translateY(-2px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-@keyframes galaxyMove {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+.github__button a:active,
+.github__button .button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.github__button .button__icon,
+.github__button i {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.github__button a:hover .button__icon,
+.github__button a:hover i,
+.github__button .button:hover .button__icon,
+.github__button .button:hover i {
+    transform: translateX(4px);
 }
 
 /* Responsive */
@@ -2724,22 +3506,22 @@ body.light-theme .nav__link.active-link {
     top: 50%;
     transform: translateY(-50%) scale(0.95);
     
-    /* Galaxy Glassmorphism Theme */
-    background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-    background-blend-mode: overlay;
-    color: #f3e8ff;
+    /* Sleek Modern Glassmorphism Theme */
+    background: rgba(15, 23, 42, 0.85);
+    color: #f8fafc;
     
     padding: 8px 14px;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.025em;
     white-space: nowrap;
     
     pointer-events: none;
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.8), 0 0 20px rgba(139, 92, 246, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(99, 102, 241, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     
@@ -2759,7 +3541,7 @@ body.light-theme .nav__link.active-link {
     transform: translateY(-50%);
     border-width: 5px;
     border-style: solid;
-    border-color: transparent rgba(168, 85, 247, 0.4) transparent transparent;
+    border-color: transparent rgba(255, 255, 255, 0.15) transparent transparent;
 }
 
 .copy-tooltip.show {
@@ -2767,7 +3549,6 @@ body.light-theme .nav__link.active-link {
     opacity: 1;
     transform: translateY(-50%) scale(1);
 }
-
 
 /* --- Floating Profile Blob Animation --- */
 .home__blob {

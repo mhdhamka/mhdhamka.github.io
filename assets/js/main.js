@@ -253,34 +253,6 @@ function initPortfolio() {
     }
 }
 
-// Component Loader with safe animation frame rendering for Swiper elements
-document.addEventListener("DOMContentLoaded", async () => {
-    const includeElements = document.querySelectorAll("[data-include]");
-    const isSubfolder = window.location.pathname.includes('/src/');
-    const pathPrefix = isSubfolder ? "../" : "";
-
-    for (const el of includeElements) {
-        const file = el.getAttribute("data-include");
-        const fullPath = pathPrefix + file;
-
-        try {
-            const response = await fetch(fullPath);
-            if (response.ok) {
-                const html = await response.text();
-                el.outerHTML = html;
-            } else {
-                console.error(`Error loading component: ${fullPath}`);
-            }
-        } catch (error) {
-            console.error(`Network error loading ${fullPath}:`, error);
-        }
-    }
-
-    requestAnimationFrame(() => {
-        document.dispatchEvent(new Event("componentsLoaded"));
-    });
-});
-
 document.addEventListener("DOMContentLoaded", initPortfolio);
 document.addEventListener("componentsLoaded", initPortfolio);
 
@@ -387,28 +359,24 @@ if (themeButton) {
 
 
 /*==================== EMAILJS ====================*/
-const contactForm = document.getElementById('contact-form'),
-    contactName = document.getElementById('contact-name'),
-    contactEmail = document.getElementById('contact-email'),
-    contactSubject = document.getElementById('contact-subject'),
-    contactMessage = document.getElementById('contact-message');
+const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
-    const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('service_l0onzso', 'template_m0plumt', '#contact-form', 'Zx7aZX32cu8hTk5mJ')
-            .then(() => {
-                alert('Message sent');
-            }, (error) => {
-                alert('Fail to send, something went wrong\n' + error);
-            });
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-        if (contactName) contactName.value = '';
-        if (contactEmail) contactEmail.value = '';
-        if (contactSubject) contactSubject.value = '';
-        if (contactMessage) contactMessage.value = '';
-    };
-    contactForm.addEventListener('submit', sendEmail);
+        const serviceID = 'service_dmzvh9j';
+        const templateID = 'uaicp4q';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            }, (error) => {
+                alert('Failed to send message. Please try again later.');
+                console.error('EmailJS Error:', error);
+            });
+    });
 }
 
 

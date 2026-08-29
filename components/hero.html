@@ -1,7 +1,6 @@
 <!-- Home / Hero Section -->
 <section class="home section" id="home">
-    <!-- Interactive Sticky Social Dock (Left Screen Edge) -->
-    <div class="home__social sticky-social-dock">
+    <aside class="home__social sticky-social-dock" aria-label="Social Links and Quick Actions">
         <a href="https://www.linkedin.com/in/mhdhamka/" target="_blank" rel="noopener noreferrer" class="home__social-icon" aria-label="LinkedIn">
             <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
             <span class="dock-tooltip">LinkedIn</span>
@@ -12,19 +11,31 @@
             <span class="dock-tooltip">GitHub</span>
         </a>
         
-        <!-- Interactive Copy Email Wrapper -->
         <div class="email-copy-wrapper home__social-icon" id="copyEmailBtn" aria-label="Copy Email" role="button" tabindex="0">
             <i class="uil uil-envelope email-icon" aria-hidden="true"></i>
             <span class="dock-tooltip" id="copyTooltip">Copy Email</span>
         </div>
-    </div>
 
-    <div class="home__container container grid">
+        <a href="#contact" class="home__social-icon" aria-label="Contact Me">
+            <i class="uil uil-message" aria-hidden="true"></i>
+            <span class="dock-tooltip">Contact Me</span>
+        </a>
+
+        <div class="home__social-icon terminal-copy-btn" id="copyNpxBtn" aria-label="Copy terminal command" role="button" tabindex="0">
+            <i class="uil uil-copy" aria-hidden="true"></i>
+            <span class="dock-tooltip" id="npxTooltip">npx mhdhamka-cv</span>
+        </div>
+
+        <a target="_blank" rel="noopener noreferrer" href="assets/resume/mhdhamka_resume.pdf" class="home__social-icon" aria-label="Resume">
+            <i class="uil uil-download-alt" aria-hidden="true"></i>
+            <span class="dock-tooltip">Resume</span>
+        </a>
+    </aside>
+
+    <div class="home__container container">
         <div class="home__content grid">
             
-            <!-- Hero Data / Text Content -->
             <div class="home__data">
-                <!-- Status Badge, Location & System Health Meta -->
                 <div class="home__meta-wrapper">
                     <div class="home__status-badge">
                         <span class="status-ping" aria-hidden="true"></span>
@@ -45,7 +56,6 @@
                     Hi, I'm <span id="name" class="highlight-text">mhdhamka</span> 
                 </h1>
                 
-                <!-- Dynamic Typing Target -->
                 <h3 class="home__subtitle">
                     I'm a <span class="typed-text"></span><span class="cursor" aria-hidden="true">&nbsp;</span>
                 </h3>
@@ -54,59 +64,29 @@
                     Software Engineering graduate specializing in full-stack web development, backend API design, and data-driven applications powered by Python, FastAPI, and machine learning.
                 </p>
 
-                <!-- Embedded Mini IDE Code Snippet -->
-                <div class="hero-code-snippet">
-                    <div class="snippet-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="snippet-title">core_engine.py</span>
-                    </div>
-                    <pre><code><span class="keyword">class</span> <span class="title">SoftwareEngineer</span>:
-                    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="params">self</span>):
-                        <span class="params">self</span>.stack = [<span class="string">"FastAPI"</span>, <span class="string">"React"</span>, <span class="string">"Python"</span>]
-                        <span class="params">self</span>.status = <span class="string">"Ready to deploy"</span></code></pre>
-                </div>
-
-                <!-- Core Tech Stack Pills -->
                 <div class="home__tech-stack">
-                    <span class="tech-pill">React / Next.js</span>
-                    <span class="tech-pill">Python / FastAPI</span>
-                    <span class="tech-pill">Pandas / NumPy / ML</span>
+                    <span class="tech-pill"><i class="uil uil-react" aria-hidden="true"></i> React / Next.js</span>
+                    <span class="tech-pill"><i class="uil uil-python" aria-hidden="true"></i> Python / FastAPI</span>
+                    <span class="tech-pill"><i class="uil uil-database" aria-hidden="true"></i> Pandas / NumPy / ML</span>
                 </div>
 
-                <!-- Engineering Metrics Ticker -->
                 <div class="home__metrics">
                     <div class="metric-item">
                         <span class="metric-value" id="repoCount">--</span>
                         <span class="metric-label">Repositories Built</span>
                     </div>
-                    <div class="metric-divider"></div>
+                    <div class="metric-divider" aria-hidden="true"></div>
                     <div class="metric-item">
                         <span class="metric-value" id="stackCount">3+</span>
                         <span class="metric-label">Core Tech Stacks</span>
                     </div>
-                    <div class="metric-divider"></div>
+                    <div class="metric-divider" aria-hidden="true"></div>
                     <div class="metric-item">
                         <span class="metric-value">100%</span>
                         <span class="metric-label">Commit Frequency</span>
                     </div>
                 </div>
 
-                <!-- Dual CTA Action Buttons + Terminal Copy Command -->
-                <div class="home__buttons">
-                    <a href="#contact" class="button button--flex">
-                        Contact Me <i class="uil uil-message button__icon" aria-hidden="true"></i>
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer" href="assets/resume/mhdhamka_resume.pdf" class="button button--flex button--ghost">
-                        Resume <i class="uil uil-download-alt button__icon" aria-hidden="true"></i>
-                    </a>
-                    <button class="button button--flex button--ghost terminal-copy-btn" id="copyNpxBtn" aria-label="Copy terminal command">
-                        <span>npx mhdhamka-cv</span> <i class="uil uil-copy button__icon" aria-hidden="true"></i>
-                    </button>
-                </div>
-
-                <!-- Scroll Indicator (Correctly nested inside home__data) -->
                 <div class="home__scroll">
                     <a href="#about" class="home__scroll-button button--flex">
                         <i class="uil uil-mouse-alt home__scroll-mouse" aria-hidden="true"></i>
@@ -116,34 +96,188 @@
                 </div>
             </div>
 
-            <!-- Avatar / Graphic -->
-            <div class="home__img">
-                <svg class="home__blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <clipPath id="circleMask">
-                            <circle cx="100" cy="100" r="90" />
-                        </clipPath>
-                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="6" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                    </defs>
+            <div class="home__vscode-window" id="vscodeWindow">
+                <div class="vscode__topbar">
+                    <div class="vscode__window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="vscode__workspace-title">mhdhamka-portfolio - VS Code</div>
+                    <button type="button" class="vscode__terminal-toggle" id="terminalToggle" aria-expanded="true" aria-controls="vscodeTerminal" title="Toggle Terminal">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                        <span>Terminal</span>
+                    </button>
+                </div>
 
-                    <!-- Interactive Animated Outer Ring -->
-                    <circle class="home__blob-ring" cx="100" cy="100" r="92" />
+                <div class="vscode__workspace">
+                    <div class="vscode__activity-bar" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-bottom: 10px;">
+                        <div class="activity-bar-top">
+                            <div class="activity-icon active" title="Explorer"><i class="uil uil-files-landscapes"></i></div>
+                            <div class="activity-icon" title="Search"><i class="uil uil-search"></i></div>
+                            <div class="activity-icon" title="Source Control"><i class="uil uil-code-branch"></i><span class="activity-badge">3</span></div>
+                            <div class="activity-icon" title="Debug"><i class="uil uil-bug"></i></div>
+                            <div class="activity-icon" title="Extensions"><i class="uil uil-box"></i></div>
+                        </div>
+                        
+                        <div class="activity-bar-bottom" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                            <div class="home__img activity-profile-blob" style="cursor: pointer;" title="mhdhamka">
+                                <svg class="home__blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px;">
+                                    <defs>
+                                        <clipPath id="circleMaskActivity">
+                                            <circle cx="100" cy="100" r="90" />
+                                        </clipPath>
+                                    </defs>
+                                    <circle class="home__blob-ring" cx="100" cy="100" r="92" />
+                                    <image
+                                        class="home__blob-img"
+                                        x="0"
+                                        y="0"
+                                        width="200"
+                                        height="200"
+                                        href="assets/img/photo.jpg"
+                                        clip-path="url(#circleMaskActivity)"
+                                        preserveAspectRatio="xMidYMid slice"
+                                    />
+                                </svg>
+                            </div>
+                            <div class="activity-icon settings" title="Settings"><i class="uil uil-setting"></i></div>
+                        </div>
+                    </div>
 
-                    <!-- Clipped Image -->
-                    <image
-                        class="home__blob-img"
-                        x="0"
-                        y="0"
-                        width="200"
-                        height="200"
-                        href="assets/img/photo.jpg"
-                        clip-path="url(#circleMask)"
-                        preserveAspectRatio="xMidYMid slice"
-                    />
-                </svg>
+                    <div class="vscode__sidebar">
+                        <div class="sidebar__header">Explorer</div>
+                        <div class="sidebar__section-title"><i class="uil uil-angle-down"></i> PORTFOLIO-WORKSPACE</div>
+                        <div class="sidebar__file-tree" id="fileTree">
+                            <div class="folder-item"><i class="uil uil-angle-down"></i> backend</div>
+                            <div class="file-item indent active" data-file="main.py"><i class="uil uil-file-code text-python"></i> main.py</div>
+                            <div class="file-item indent" data-file="core_engine.py"><i class="uil uil-file-code text-python"></i> core_engine.py</div>
+                            <div class="file-item indent" data-file="requirements.txt"><i class="uil uil-file-alt text-muted"></i> requirements.txt</div>
+
+                            <div class="folder-item"><i class="uil uil-angle-down"></i> frontend</div>
+                            <div class="file-item indent" data-file="App.tsx"><i class="uil uil-file-code text-react"></i> App.tsx</div>
+                            <div class="file-item indent" data-file="package.json"><i class="uil uil-file-alt text-json"></i> package.json</div>
+
+                            <div class="file-item" data-file="profile.png"><i class="uil uil-camera text-image"></i> profile.png</div>
+                        </div>
+                    </div>
+
+                    <div class="vscode__editor-pane">
+                        <div class="vscode__tabs" id="fileTabs">
+                            <div class="vscode__tab active" data-file="main.py"><i class="uil uil-file-code text-python" aria-hidden="true"></i> main.py</div>
+                            <div class="vscode__tab" data-file="core_engine.py"><i class="uil uil-file-code text-python" aria-hidden="true"></i> core_engine.py</div>
+                            <div class="vscode__tab" data-file="App.tsx"><i class="uil uil-file-code text-react" aria-hidden="true"></i> App.tsx</div>
+                            <div class="vscode__tab" data-file="requirements.txt"><i class="uil uil-file-alt text-muted" aria-hidden="true"></i> requirements.txt</div>
+                            <div class="vscode__tab" data-file="package.json"><i class="uil uil-file-alt text-json" aria-hidden="true"></i> package.json</div>
+                            <div class="vscode__tab" data-file="profile.png"><i class="uil uil-camera text-image" aria-hidden="true"></i> profile.png</div>
+                        </div>
+
+                        <div class="vscode__body">
+
+                            <div class="code-panel active" data-file="main.py">
+                                <div class="hero-code-snippet">
+                                    <pre><code><span class="keyword">from</span> fastapi <span class="keyword">import</span> <span class="title">FastAPI</span>
+<span class="keyword">from</span> fastapi.middleware.cors <span class="keyword">import</span> <span class="title">CORSMiddleware</span>
+<span class="keyword">from</span> core_engine <span class="keyword">import</span> <span class="title">SoftwareEngineer</span>
+
+                    app = <span class="title">FastAPI</span>(title=<span class="string">"mhdhamka API"</span>)
+                    app.add_middleware(<span class="title">CORSMiddleware</span>, allow_origins=[<span class="string">"*"</span>])
+
+                    engineer = <span class="title">SoftwareEngineer</span>()
+
+                    <span class="decorator">@app.get</span>(<span class="string">"/api/status"</span>)
+                    <span class="keyword">async def</span> <span class="function">get_status</span>():
+                        <span class="comment"># exposes live profile data to the frontend</span>
+                        <span class="keyword">return</span> {
+                            <span class="string">"name"</span>: <span class="string">"mhdhamka"</span>,
+                            <span class="string">"stack"</span>: engineer.stack,
+                            <span class="string">"status"</span>: engineer.status,
+                        }</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="code-panel" data-file="core_engine.py">
+                                <div class="hero-code-snippet">
+                                    <pre><code><span class="keyword">class</span> <span class="title">SoftwareEngineer</span>:
+    <span class="comment"># core identity of the engine</span>
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="params">self</span>):
+        <span class="params">self</span>.stack = [<span class="string">"FastAPI"</span>, <span class="string">"React"</span>, <span class="string">"Next.js"</span>]
+        <span class="params">self</span>.status = <span class="string">"Ready"</span>
+
+    <span class="keyword">def</span> <span class="function">build</span>(<span class="params">self</span>, idea: <span class="title">str</span>) -> <span class="title">str</span>:
+        <span class="keyword">return</span> <span class="string">f"Shipping {idea}"</span></code></pre>
+                                </div>
+                            </div>
+
+                            <div class="code-panel" data-file="App.tsx">
+                                <div class="hero-code-snippet">
+                                    <pre><code><span class="keyword">import</span> { useEffect, useState } <span class="keyword">from</span> <span class="string">"react"</span>;
+
+<span class="keyword">export default function</span> <span class="function">Home</span>() {
+  <span class="keyword">const</span> [status, setStatus] = <span class="function">useState</span>(<span class="keyword">null</span>);
+
+  <span class="function">useEffect</span>(() => {
+    <span class="function">fetch</span>(<span class="string">"/api/status"</span>)
+      .then((res) => res.json())
+      .then(setStatus);
+  }, []);
+
+  <span class="keyword">return</span> (
+    <span class="tag">&lt;main&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>Hi, I'm mhdhamka<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;p&gt;</span>{status?.status ?? <span class="string">"Loading..."</span>}<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/main&gt;</span>
+  );
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="code-panel" data-file="requirements.txt">
+                                <div class="hero-code-snippet">
+                                    <pre><code>fastapi<span class="function">==</span><span class="number">0.115.0</span>
+uvicorn[standard]<span class="function">==</span><span class="number">0.30.6</span>
+pydantic<span class="function">==</span><span class="number">2.9.2</span>
+python-dotenv<span class="function">==</span><span class="number">1.0.1</span></code></pre>
+                                </div>
+                            </div>
+
+                            <div class="code-panel" data-file="package.json">
+                                <div class="hero-code-snippet">
+                                    <pre><code>{
+  <span class="string">"name"</span>: <span class="string">"mhdhamka-portfolio"</span>,
+  <span class="string">"scripts"</span>: {
+    <span class="string">"dev"</span>: <span class="string">"next dev"</span>,
+    <span class="string">"build"</span>: <span class="string">"next build"</span>
+  },
+  <span class="string">"dependencies"</span>: {
+    <span class="string">"next"</span>: <span class="string">"15.0.0"</span>,
+    <span class="string">"react"</span>: <span class="string">"18.3.1"</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="code-panel binary-preview" data-file="profile.png">
+                                <i class="uil uil-image-v text-image binary-preview__icon" aria-hidden="true"></i>
+                                <p>This file is not displayed in the editor because it is a binary file.</p>
+                                <button type="button" class="binary-preview__btn">Open Anyway</button>
+                            </div>
+
+                        </div>
+
+                        <div class="vscode__terminal" id="vscodeTerminal">
+                            <div class="vscode__terminal-header">
+                                <div class="vscode__terminal-tabs">
+                                    <span class="vscode__terminal-tab">PROBLEMS</span>
+                                    <span class="vscode__terminal-tab">OUTPUT</span>
+                                    <span class="vscode__terminal-tab active">TERMINAL</span>
+                                </div>
+                                <span class="vscode__terminal-shell"><i class="uil uil-plus" aria-hidden="true"></i> bash</span>
+                            </div>
+                            <div class="vscode__terminal-body" id="terminalBody" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

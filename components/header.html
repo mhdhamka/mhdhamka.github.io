@@ -1,8 +1,13 @@
 <!-- Header -->
 <header class="header" id="header"> 
     <nav class="nav container" aria-label="Main Navigation"> 
-        <!-- Logo always points to root index.html -->
-        <a href="index.html" class="nav__logo" id="nav-logo">mhdhamka Portfolio</a> 
+        <!-- Logo with Developer Icon -->
+        <a href="index.html" class="nav__logo" id="nav-logo">
+            <div class="nav__logo-icon">
+                <i class="uil uil-brackets-curly" aria-hidden="true"></i>
+            </div>
+            <span class="nav__logo-text">mhdhamka Portfolio</span>
+        </a> 
         
         <div class="nav__menu" id="nav-menu"> 
             <ul class="nav__list grid"> 
@@ -42,18 +47,31 @@
                     </a>
                 </li>
             </ul> 
-            <!-- Close icon with accessibility attributes -->
             <i class="uil uil-times nav__close" id="nav-close" role="button" tabindex="0" aria-label="Close Menu"></i> 
         </div> 
 
         <div class="nav__btns"> 
-            <!-- Theme button with aria label -->
             <i class="uil uil-moon change-theme" id="theme-button" role="button" tabindex="0" aria-label="Toggle Dark/Light Theme"></i> 
-            
-            <!-- Mobile menu toggle with aria label -->
             <div class="nav__toggle" id="nav-toggle" role="button" tabindex="0" aria-label="Open Menu"> 
                 <i class="uil uil-apps" aria-hidden="true"></i> 
             </div> 
         </div>
     </nav> 
 </header>
+
+<!-- Script to fix relative link depths automatically when loaded into subfolders like /src/ -->
+<script>
+    (function() {
+        if (window.location.pathname.includes('/src/')) {
+            const navLinks = document.querySelectorAll('.header a');
+            navLinks.forEach(link => {
+                let href = link.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    link.setAttribute('href', '../' + href);
+                } else if (href && href.startsWith('index.html#')) {
+                    link.setAttribute('href', '../' + href);
+                }
+            });
+        }
+    })();
+</script>

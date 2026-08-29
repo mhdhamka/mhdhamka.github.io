@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/project.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/solar:planet-3-bold-duotone.svg?color=%23c084fc">
 
@@ -33,12 +34,24 @@
         <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
 
+    <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "vmIE-vylhELhfT_JC",
+          });
+       })();
+    </script>
+
+    <!-- Main Scripts -->
     <script src="assets/js/component-loader.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/hero.js"></script>
 </body>
 
 </html>
