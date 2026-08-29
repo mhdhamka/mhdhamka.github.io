@@ -1357,6 +1357,7 @@ body.light-theme .nav__link.active-link {
 .button:hover .button__icon {
     transform: translateX(4px);
 }
+
 /* ==================== ABOUT  ==================== */
 .about__container {
     display: grid;
@@ -1372,68 +1373,110 @@ body.light-theme .nav__link.active-link {
     }
 }
 
-/* Modern Interactive Terminal Card */
-.about__terminal-card {
+/* Modern Profile & Stats Card (Replaces Terminal Card) */
+.about__profile-card {
     background: rgba(15, 23, 42, 0.85);
     border: 1px solid rgba(139, 92, 246, 0.35);
     border-radius: 1.25rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(139, 92, 246, 0.2);
     backdrop-filter: blur(12px);
     overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
+    padding: 2rem 1.5rem;
+    text-align: center;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.about__terminal-card:hover {
+.about__profile-card:hover {
     transform: translateY(-5px);
     border-color: rgba(168, 85, 247, 0.6);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
 }
 
-.terminal__header {
-    background: rgba(30, 27, 75, 0.6);
-    padding: 0.75rem 1rem;
-    display: flex;
+.profile__header-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    gap: 0.4rem;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    color: #c084fc;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
+.profile__avatar-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
     border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
 }
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #f59e0b; }
-.dot.green { background: #10b981; }
 
-.terminal__title {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 0.8rem;
+.profile__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.25rem;
+}
+
+.profile__role {
+    font-size: 0.9rem;
     color: #94a3b8;
+    margin-bottom: 0.75rem;
 }
 
-.terminal__body {
-    padding: 1.25rem;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #e2e8f0;
+.profile__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.825rem;
+    color: #38bdf8;
+    margin-bottom: 1.5rem;
 }
 
-.terminal__body p {
-    margin: 0;
+.profile__footer-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(30, 27, 75, 0.4);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 0.85rem;
+    padding: 0.85rem;
 }
 
-.indent { padding-left: 1.2rem; }
-.indent-2 { padding-left: 2.4rem; }
+.stat__item {
+    display: flex;
+    flex-direction: column;
+}
 
-.keyword { color: #c084fc; font-weight: bold; }
-.class-name { color: #38bdf8; font-weight: bold; }
-.function { color: #6ee7b7; }
-.string { color: #f472b6; }
-.self { color: #fbbf24; }
+.stat__number {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.stat__label {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat__divider {
+    width: 1px;
+    height: 25px;
+    background: rgba(139, 92, 246, 0.3);
+}
 
 /* Text & Info Cards */
 .about__description {
@@ -1480,6 +1523,13 @@ body.light-theme .nav__link.active-link {
     background: rgba(30, 27, 75, 0.7);
 }
 
+.about__card-icon {
+    font-size: 1.25rem;
+    color: #a855f7;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
 .about__info-title {
     display: block;
     font-size: 0.75rem;
@@ -1506,6 +1556,14 @@ body.light-theme .nav__link.active-link {
     border-radius: 0 0.5rem 0.5rem 0;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about__quote i {
+    color: #c084fc;
+    font-size: 1.1rem;
 }
 
 .about__buttons {
@@ -2167,7 +2225,7 @@ body.light-theme .nav__link.active-link {
     flex-direction: column;
     gap: 3rem;
     width: 100%;
-    max-width: 1200px; /* Aligns with section headers */
+    max-width: 1200px; 
     margin-left: auto;
     margin-right: auto;
 }
