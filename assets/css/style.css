@@ -1,7 +1,7 @@
 /*==================== GOOGLE FONTS ====================*/
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
-/*==================== VARIABLES CSS (GALAXY THEME) ====================*/
+/*==================== VARIABLES CSS ( GALAXYTHEME) ====================*/
 :root {
   --header-height: 4rem;
 
@@ -1358,7 +1358,7 @@ body.light-theme .nav__link.active-link {
     transform: translateX(4px);
 }
 
-/* ==================== ABOUT  ==================== */
+/* ==================== ABOUT ==================== */
 .about__container {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -1373,16 +1373,24 @@ body.light-theme .nav__link.active-link {
     }
 }
 
-/* Modern Profile & Stats Card (Replaces Terminal Card) */
+/* About Photo Card */
+.about__img {
+    display: flex;
+    justify-content: center;
+}
+
 .about__profile-card {
     background: rgba(15, 23, 42, 0.85);
     border: 1px solid rgba(139, 92, 246, 0.35);
     border-radius: 1.25rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(139, 92, 246, 0.2);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     overflow: hidden;
     padding: 2rem 1.5rem;
     text-align: center;
+    width: 100%;
+    max-width: 320px;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1414,12 +1422,14 @@ body.light-theme .nav__link.active-link {
     overflow: hidden;
     border: 2px solid rgba(168, 85, 247, 0.5);
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    flex-shrink: 0;
 }
 
 .profile__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .profile__name {
@@ -1523,13 +1533,6 @@ body.light-theme .nav__link.active-link {
     background: rgba(30, 27, 75, 0.7);
 }
 
-.about__card-icon {
-    font-size: 1.25rem;
-    color: #a855f7;
-    margin-bottom: 0.25rem;
-    display: block;
-}
-
 .about__info-title {
     display: block;
     font-size: 0.75rem;
@@ -1545,6 +1548,99 @@ body.light-theme .nav__link.active-link {
     color: #f8fafc;
 }
 
+/* Interactive "Currently" tab panel — replaces the old static trait badges */
+.about__pulse {
+    margin-bottom: 1.5rem;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 1rem;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+
+.pulse__tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.pulse__tab {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease, background 0.2s ease;
+    font-family: inherit;
+}
+
+.pulse__tab i {
+    font-size: 1rem;
+}
+
+.pulse__tab:hover {
+    color: #e9d5ff;
+    background: rgba(139, 92, 246, 0.08);
+}
+
+.pulse__tab.active {
+    color: #f3e8ff;
+}
+
+.pulse__tab.active::after {
+    content: '';
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
+.pulse__panel {
+    display: none;
+    padding: 1.1rem 1.25rem;
+    animation: pulseFadeIn 0.25s ease;
+}
+
+.pulse__panel.active {
+    display: block;
+}
+
+.pulse__panel p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+.pulse__panel strong {
+    color: #a855f7;
+    font-weight: 600;
+}
+
+@keyframes pulseFadeIn {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 576px) {
+    .pulse__tab span,
+    .pulse__tab {
+        font-size: 0.72rem;
+        padding: 0.65rem 0.35rem;
+    }
+}
+
 /* Quote styling */
 .about__quote {
     position: relative;
@@ -1556,14 +1652,6 @@ body.light-theme .nav__link.active-link {
     border-radius: 0 0.5rem 0.5rem 0;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.about__quote i {
-    color: #c084fc;
-    font-size: 1.1rem;
 }
 
 .about__buttons {
@@ -1571,77 +1659,8 @@ body.light-theme .nav__link.active-link {
     justify-content: flex-start;
 }
 
-/* Sleek Modern Tech Button Style for About Section Buttons */
-.about__buttons .button, 
-.about__buttons .button--flex {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.03);
-    color: #f8fafc;
-    padding: 0.75rem 1.75rem;
-    border-radius: 0.75rem;
-    font-weight: 500;
-    font-size: 0.925rem;
-    letter-spacing: 0.2px;
-    text-decoration: none;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-}
 
-/* Subtle clean hover fill effect */
-.about__buttons .button::before,
-.about__buttons .button--flex::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    z-index: -1;
-}
-
-.about__buttons .button:hover::before,
-.about__buttons .button--flex:hover::before {
-    opacity: 1;
-}
-
-.about__buttons .button:hover, 
-.about__buttons .button--flex:hover {
-    transform: translateY(-2px);
-    border-color: rgba(129, 140, 248, 0.4);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
-                0 0 15px rgba(99, 102, 241, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-.about__buttons .button:active,
-.about__buttons .button--flex:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.about__buttons .button__icon {
-    font-size: 1.15rem;
-    transition: transform 0.25s ease;
-}
-
-.about__buttons .button:hover .button__icon {
-    transform: translateX(4px);
-}
-
-
-/*==================== GALAXY SKILLS CONTAINER ====================*/
+/*====================  SKILLS  ====================*/
 .skills__container {
     width: 100%;
     max-width: 1200px;
@@ -1662,7 +1681,7 @@ body.light-theme .nav__link.active-link {
     padding-bottom: 1rem;
 }
 
-/*==================== GALAXY FLASH CARD CONTAINER ====================*/
+/*====================  FLASH CARD CONTAINER ====================*/
 .skill-card {
     position: relative;
     width: 320px;
@@ -1701,7 +1720,7 @@ body.light-theme .nav__link.active-link {
     opacity: 1;
 }
 
-/*==================== CARD FACES (GALAXY FRONT & BACK) ====================*/
+/*==================== CARD FACES ( FRONT & BACK) ====================*/
 .skill-card__front,
 .skill-card__back {
     position: absolute;
@@ -1716,7 +1735,7 @@ body.light-theme .nav__link.active-link {
     border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
-/* GALAXY FRONT FACE */
+/*  FRONT FACE */
 .skill-card__front {
     background: linear-gradient(145deg, rgba(30, 27, 75, 0.85), rgba(15, 23, 42, 0.95));
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
@@ -1752,7 +1771,7 @@ body.light-theme .nav__link.active-link {
     text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
-/* GALAXY BACK FACE */
+/*  BACK FACE */
 .skill-card__back {
     background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
@@ -1827,7 +1846,7 @@ body.light-theme .nav__link.active-link {
     border-radius: 0.3rem;
 }
 
-/* GALAXY PROGRESS TRACK */
+/*  PROGRESS TRACK */
 .progress {
     width: 100%;
     height: 6px;
@@ -1837,7 +1856,7 @@ body.light-theme .nav__link.active-link {
     border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
-/* GALAXY MOVING STARFIELD FILL */
+/*  MOVING STARFIELD FILL */
 .progress-bar {
     height: 100%;
     width: 0%;
@@ -1866,7 +1885,7 @@ body.light-theme .nav__link.active-link {
     }
 }
 
-/*==================== GALAXY QUALIFICATION ====================*/
+/*====================  QUALIFICATION ====================*/
 
 .qualification {
     padding: 6rem 0 4rem;
@@ -2217,7 +2236,7 @@ body.light-theme .nav__link.active-link {
 }
 
 
-/*==================== GALAXY ACTIVITY ====================*/
+/*====================  ACTIVITY ====================*/
 
 /* 1. Ensure Container Takes Full Layout Width */
 .activity__container {
@@ -2240,7 +2259,7 @@ body.light-theme .nav__link.active-link {
     padding: 2.2rem;
     width: 100%;
     
-    /* Galaxy Glassmorphism Backdrop */
+    /*  Glassmorphism Backdrop */
     background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
     background-blend-mode: overlay;
@@ -2457,7 +2476,7 @@ body.light-theme .nav__link.active-link {
     }
 }
 /* ==========================================
-   GALAXY CONTACT ME 
+    CONTACT ME 
 ========================================== */
 
 .contact__container {
@@ -2477,7 +2496,7 @@ body.light-theme .nav__link.active-link {
     gap: 1.5rem;
 }
 
-/* Galaxy Contact Card */
+/*  Contact Card */
 .contact__card {
     position: relative;
     overflow: hidden;
@@ -2690,7 +2709,7 @@ body.light-theme .nav__link.active-link {
 }
 
 /* ==========================================
-   MODERN GALAXY CONTACT FORM (Right Column)
+   MODERN  CONTACT FORM (Right Column)
 ========================================== */
 
 .contact__form {
@@ -3266,8 +3285,9 @@ body.light-theme .nav__link.active-link {
     }
 }
 
+
 /* =========================
-   GALAXY GITHUB SECTION
+    GITHUB 
 ========================= */
 
 .github__container {
@@ -3371,7 +3391,7 @@ body.light-theme .nav__link.active-link {
     position: relative;
     overflow: hidden;
     
-    /* Galaxy Glassmorphism Styling */
+    /*  Glassmorphism Styling */
     background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
     background-blend-mode: overlay;
@@ -3688,7 +3708,7 @@ body.light-theme .nav__link.active-link {
     gap: 1rem;
     padding: 0.8rem 0.6rem;
     
-    /* Galaxy Glassmorphism background */
+    /*  Glassmorphism background */
     background: radial-gradient(circle at top left, rgba(30, 27, 75, 0.85), rgba(15, 23, 42, 0.9));
     background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
     background-blend-mode: overlay;
@@ -3718,7 +3738,7 @@ body.light-theme .nav__link.active-link {
     transition: all 0.3s ease;
 }
 
-/* Hover & Active States with Galaxy Glow Gradient */
+/* Hover & Active States with  Glow Gradient */
 .sticky-social-dock .home__social-icon:hover {
     color: #ffffff;
     background: linear-gradient(135deg, #6b21a8, #9333ea, #3b82f6);

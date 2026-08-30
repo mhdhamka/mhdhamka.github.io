@@ -1,9 +1,9 @@
 <section class="about section" id="about">
     <h2 class="section__title">About Me</h2>
-    <span class="section__subtitle">Personal Summary</span>
+    <span class="section__subtitle">Beyond the Resume</span>
 
     <div class="about__container container grid">
-        <!-- Visual Profile & Quick Stats Box (Replaces Code Terminal) -->
+        <!-- Visual Profile & Quick Stats Box -->
         <div class="about__img">
             <div class="about__profile-card">
                 <div class="profile__header-badge">
@@ -12,14 +12,10 @@
                 </div>
                 <div class="profile__content-center">
                     <div class="profile__avatar-container">
-                        <!-- Swap src with your actual avatar or illustration -->
                         <img src="assets/img/photo.jpg" alt="mhdhamka profile" class="profile__img">
                     </div>
                     <h3 class="profile__name">Mohammad Hamka</h3>
                     <p class="profile__role">Software Engineer</p>
-                    <div class="profile__location">
-                        <i class="uil uil-map-marker"></i> Kuching, Sarawak
-                    </div>
                 </div>
                 <div class="profile__footer-stats">
                     <div class="stat__item">
@@ -38,24 +34,33 @@
         <!-- Content Data -->
         <div class="about__data">
             <p class="about__description">
-                My journey into tech started with a passion for problem-solving, leading me to graduate with a Software Engineering degree from <strong>UNIMAS</strong>. Today, I focus on bridging the gap between high-performance backend systems and intuitive user interfaces. Whether I'm structuring <strong>FastAPI</strong> microservices or integrating <strong>Machine Learning</strong> pipelines, I love turning complex logic into seamless digital experiences right here in Kuching.
+                My journey into tech started with a simple obsession: turning messy, real-world problems into systems that just work. That curiosity carried me through a Software Engineering degree at <strong>UNIMAS</strong>, and it still shapes how I approach every project today, start from the data, design for the person who'll actually use it, and sweat the details in between.
             </p>
-            
-            <div class="about__info-cards">
-                <div class="about__info-card">
-                    <i class="uil uil-bolt about__card-icon"></i>
-                    <span class="about__info-title">Active</span>
-                    <span class="about__info-name">Learner</span>
+
+            <!-- Interactive "click to explore" panel, replacing static trait badges -->
+            <div class="about__pulse" id="aboutPulse">
+                <div class="pulse__tabs" role="tablist" aria-label="About me, by category">
+                    <button type="button" class="pulse__tab active" data-pulse="approach" role="tab" aria-selected="true">
+                        <i class="uil uil-compass" aria-hidden="true"></i> Approach
+                    </button>
+                    <button type="button" class="pulse__tab" data-pulse="focus" role="tab" aria-selected="false">
+                        <i class="uil uil-crosshairs" aria-hidden="true"></i> Focus Areas
+                    </button>
+                    <button type="button" class="pulse__tab" data-pulse="beyond" role="tab" aria-selected="false">
+                        <i class="uil uil-coffee" aria-hidden="true"></i> Beyond Code
+                    </button>
                 </div>
-                <div class="about__info-card">
-                    <i class="uil uil-rocket about__card-icon"></i>
-                    <span class="about__info-title">Evolving</span>
-                    <span class="about__info-name">Developer</span>
+
+                <div class="pulse__panel active" data-pulse-panel="approach" role="tabpanel">
+                    <p>I'd rather ship something small and working than perfect and stuck. Most projects start with me sketching the data model first, once that's solid, the API and the UI tend to follow naturally.</p>
                 </div>
-                <div class="about__info-card">
-                    <i class="uil uil-users-alt about__card-icon"></i>
-                    <span class="about__info-title">Collaborative</span>
-                    <span class="about__info-name">Team-Oriented</span>
+
+                <div class="pulse__panel" data-pulse-panel="focus" role="tabpanel">
+                    <p>My university coursework runs through the fundamentals like <strong>C, C++, PHP,</strong> and JavaScript, while my own side projects are where I get to stretch into the modern stack: <strong>Python, TypeScript, React, FastAPI</strong>, and occasionally Three.js or Laravel when a project calls for it.</p>
+                </div>
+
+                <div class="pulse__panel" data-pulse-panel="beyond" role="tabpanel">
+                    <p>Outside of code, I'm usually chasing a good sunset around Kuching or hunting down new food spots. I'm also a bit obsessed with football, and I'll happily go down a rabbit hole about history or geopolitics if you let me.</p>
                 </div>
             </div>
 
