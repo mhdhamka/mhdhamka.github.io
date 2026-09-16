@@ -13,6 +13,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('selected-theme');
@@ -52,6 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const handleNavClick = (sectionId: string) => {
     setIsMenuOpen(false);
+    setActiveSection(sectionId);
     if (currentView !== 'home') {
       setCurrentView('home');
       setTimeout(() => {
@@ -93,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({
             <li className="nav__item">
               <a
                 href="#home"
-                className={`nav__link ${currentView === 'home' ? 'active-link' : ''}`}
+                className={`nav__link ${currentView === 'home' && activeSection === 'home' ? 'active-link' : ''}`}
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
@@ -112,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
             <li className="nav__item">
               <a
                 href="#about"
-                className="nav__link"
+                className={`nav__link ${currentView === 'home' && activeSection === 'about' ? 'active-link' : ''}`}
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
@@ -131,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({
             <li className="nav__item">
               <a
                 href="#qualification"
-                className="nav__link"
+                className={`nav__link ${currentView === 'home' && activeSection === 'qualification' ? 'active-link' : ''}`}
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
@@ -150,7 +152,7 @@ export const Header: React.FC<HeaderProps> = ({
             <li className="nav__item">
               <a
                 href="#skills"
-                className="nav__link"
+                className={`nav__link ${currentView === 'home' && activeSection === 'skills' ? 'active-link' : ''}`}
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
@@ -173,12 +175,16 @@ export const Header: React.FC<HeaderProps> = ({
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick('activity');
+                  setIsMenuOpen(false);
+                  setCurrentView('activities');
+                  setActiveSection('activity');
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    handleNavClick('activity');
+                    setIsMenuOpen(false);
+                    setCurrentView('activities');
+                    setActiveSection('activity');
                   }
                 }}
               >
@@ -192,12 +198,16 @@ export const Header: React.FC<HeaderProps> = ({
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick('project');
+                  setIsMenuOpen(false);
+                  setCurrentView('projects');
+                  setActiveSection('project');
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    handleNavClick('project');
+                    setIsMenuOpen(false);
+                    setCurrentView('projects');
+                    setActiveSection('project');
                   }
                 }}
               >
@@ -207,7 +217,7 @@ export const Header: React.FC<HeaderProps> = ({
             <li className="nav__item">
               <a
                 href="#github"
-                className="nav__link"
+                className={`nav__link ${currentView === 'home' && activeSection === 'github' ? 'active-link' : ''}`}
                 tabIndex={0}
                 onClick={(e) => {
                   e.preventDefault();
