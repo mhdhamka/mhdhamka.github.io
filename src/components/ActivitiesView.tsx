@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { activitiesData } from '../data/activitiesData';
+import { activities } from '../data/activities';
 import { ActivityImageWithSkeleton, ActivityCardSkeleton } from './SkeletonLoader';
 
 interface ActivitiesViewProps {
@@ -20,7 +20,7 @@ export const ActivitiesView: React.FC<ActivitiesViewProps> = ({ onBackToHome }) 
 
   const types = useMemo(() => {
     const set = new Set<string>();
-    activitiesData.forEach((a) => {
+    activities.forEach((a) => {
       set.add(a.type.toUpperCase());
     });
     return ['ALL', ...Array.from(set)];
@@ -30,7 +30,7 @@ export const ActivitiesView: React.FC<ActivitiesViewProps> = ({ onBackToHome }) 
     const query = searchQuery.toLowerCase().trim();
     const currentType = selectedType.toUpperCase();
 
-    return activitiesData.filter((act) => {
+    return activities.filter((act) => {
       const matchesType =
         currentType === 'ALL' || act.type.toUpperCase() === currentType;
       const matchesSearch =

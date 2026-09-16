@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../assets/css/github.css';
+import '../assets/css/github.css';
 
 interface GitHubProfileData {
   login: string;

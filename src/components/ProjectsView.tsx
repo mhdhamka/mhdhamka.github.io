@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { initialProjects } from '../data/projectsData';
+import { initialProjects } from '../data/projects';
 import { Project } from '../types';
 import { ProjectImageWithSkeleton, ProjectCardSkeleton } from './SkeletonLoader';
 

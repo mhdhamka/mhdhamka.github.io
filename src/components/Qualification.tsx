@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../assets/css/qualification.css';
+import '../assets/css/qualification.css';
 
 interface QualificationItem {
   id: string;

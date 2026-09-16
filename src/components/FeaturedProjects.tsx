@@ -1,5 +1,5 @@
 import React from 'react';
-import { initialProjects } from '../data/projectsData';
+import { initialProjects } from '../data/projects';
 import { ProjectImageWithSkeleton } from './SkeletonLoader';
 
 interface FeaturedProjectsProps {
