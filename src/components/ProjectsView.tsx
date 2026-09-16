@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { initialProjects } from '../data/projects';
 import { Project } from '../types';
-import { ProjectImageWithSkeleton, ProjectCardSkeleton } from './SkeletonLoader';
+import { ProjectImageWithSkeleton, ProjectCardSkeleton } from './common/SkeletonLoader';
 
 interface ProjectsViewProps {
   onBackToHome?: () => void;
@@ -206,27 +206,24 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onBackToHome }) => {
   return (
     <div className="projects-page-wrapper">
       <section className="project section" id="project" style={{ paddingTop: '5.5rem' }}>
-        <div className="section__header-flex container">
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-              {onBackToHome && (
-                <button
-                  type="button"
-                  onClick={onBackToHome}
-                  className="button button--small"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
-                >
-                  <i className="uil uil-arrow-left"></i> Home
-                </button>
-              )}
-              <h2 className="section__title" style={{ margin: 0 }}>Featured Projects</h2>
+        <div className="container" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          {onBackToHome && (
+            <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem' }}>
+              <button
+                type="button"
+                onClick={onBackToHome}
+                className="button button--small"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}
+              >
+                <i className="uil uil-arrow-left"></i> Home
+              </button>
             </div>
-            <span className="section__subtitle">
-              A high-performance collection of web apps, systems, and open-source code
-            </span>
-          </div>
-
-          <div id="github-sync-status" className="sync-badge">
+          )}
+          <h2 className="section__title" style={{ margin: '0 0 0.5rem 0' }}>Featured Projects</h2>
+          <span className="section__subtitle" style={{ display: 'block' }}>
+            A high-performance collection of web apps, systems, and open-source code
+          </span>
+          <div id="github-sync-status" className="sync-badge" style={{ display: 'inline-flex', marginTop: '1rem' }}>
             <span className="sync-dot"></span> Live GitHub Sync
           </div>
         </div>

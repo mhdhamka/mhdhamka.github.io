@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityImageWithSkeleton } from './SkeletonLoader';
+import { ActivityImageWithSkeleton } from './common/SkeletonLoader';
 
 interface HomeActivityTeaserProps {
   onViewAllActivities: () => void;

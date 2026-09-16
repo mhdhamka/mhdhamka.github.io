@@ -1,6 +1,6 @@
 import React from 'react';
 import { initialProjects } from '../data/projects';
-import { ProjectImageWithSkeleton } from './SkeletonLoader';
+import { ProjectImageWithSkeleton } from './common/SkeletonLoader';
 
 interface FeaturedProjectsProps {
   onViewAllProjects: () => void;

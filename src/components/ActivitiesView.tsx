@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { activities } from '../data/activities';
-import { ActivityImageWithSkeleton, ActivityCardSkeleton } from './SkeletonLoader';
+import { ActivityImageWithSkeleton, ActivityCardSkeleton } from './common/SkeletonLoader';
 
 interface ActivitiesViewProps {
   onBackToHome?: () => void;
@@ -45,9 +45,9 @@ export const ActivitiesView: React.FC<ActivitiesViewProps> = ({ onBackToHome }) 
 
   return (
     <section className="activity section" id="activity" style={{ paddingTop: '5.5rem' }}>
-      <div className="container" style={{ marginBottom: '2rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-          {onBackToHome && (
+      <div className="container" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        {onBackToHome && (
+          <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem' }}>
             <button
               type="button"
               onClick={onBackToHome}
@@ -63,10 +63,10 @@ export const ActivitiesView: React.FC<ActivitiesViewProps> = ({ onBackToHome }) 
             >
               <i className="uil uil-arrow-left"></i> Home
             </button>
-          )}
-          <h2 className="section__title" style={{ margin: 0 }}>Leadership &amp; Activities</h2>
-        </div>
-        <span className="section__subtitle">
+          </div>
+        )}
+        <h2 className="section__title" style={{ margin: '0 0 0.5rem 0' }}>Leadership &amp; Activities</h2>
+        <span className="section__subtitle" style={{ display: 'block' }}>
           Leadership roles, volunteering experiences, and industry exposure
         </span>
       </div>
