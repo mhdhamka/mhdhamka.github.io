@@ -5,54 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mhdhamka Portfolio</title>
+    <meta name="description" content="Portfolio website of Mhd Hamka showcasing software engineering projects, skills, qualifications, and activities.">
+    <meta property="og:title" content="Mhd Hamka Portfolio">
+    <meta property="og:description" content="Portfolio website of Mhd Hamka showcasing software engineering projects, skills, qualifications, and activities.">
+    
+    <!-- UNICONS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/project.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/svg+xml" href="https://api.iconify.design/solar:planet-3-bold-duotone.svg?color=%23c084fc">
-
-    <title>mhdhamka portfolio</title>
 </head>
 
-<body>
-    <div data-include="components/common/header.html"></div>
-
-    <main class="main">
-        <div data-include="components/hero.html"></div>
-        <div data-include="components/about.html"></div>
-        <div data-include="components/qualification.html"></div>
-        <div data-include="components/skills.html"></div>
-        <div data-include="components/activity.html"></div>
-        <div data-include="components/projects.html"></div>
-        <div data-include="components/github.html"></div>
-        <div data-include="components/contact.html"></div>
-    </main>
-
-    <div data-include="components/common/footer.html"></div>
-
-    <a href="#home" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
+<body class="dark-theme">
+    <div id="root"></div>
 
     <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
-          emailjs.init({
-            publicKey: "vmIE-vylhELhfT_JC",
-          });
+          if (window.emailjs) {
+            emailjs.init({
+              publicKey: "vmIE-vylhELhfT_JC",
+            });
+          }
        })();
     </script>
 
-    <!-- Main Scripts -->
-    <script src="assets/js/component-loader.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/hero.js"></script>
-    <script src="assets/js/about.js"></script>
+    <!-- Vite React Entry Point -->
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
