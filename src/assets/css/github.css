@@ -296,7 +296,9 @@
 
 .gh-stats-card-frame {
   background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-blend-mode: overlay;
+  border: 1px solid rgba(139, 92, 246, 0.28);
   border-radius: 1.25rem;
   padding: 1.25rem;
   display: flex;
@@ -325,7 +327,9 @@
   max-width: 960px;
   margin: 0 auto;
   background: radial-gradient(circle at top left, #1e1b4b, #0f172a);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-blend-mode: overlay;
+  border: 1px solid rgba(139, 92, 246, 0.28);
   border-radius: 1.25rem;
   padding: 1.25rem;
   display: flex;
